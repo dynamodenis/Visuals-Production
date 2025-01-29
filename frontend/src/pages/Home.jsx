@@ -29,17 +29,6 @@ const Home = () => {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <header className="bg-gradient-to-r from-red-900 to-black">
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold">Visual Productions</h1>
-            <div className="space-x-6">
-              <a href="#equipment" className="hover:text-red-500">Equipment</a>
-              <a href="#services" className="hover:text-red-500">Services</a>
-              <a href="#contact" className="hover:text-red-500">Contact</a>
-            </div>
-          </div>
-        </nav>
-        
         <div className="container mx-auto px-6 py-24">
           <div className="max-w-3xl">
             <h2 className="text-5xl font-bold mb-6">Professional Equipment for Content Creators</h2>
