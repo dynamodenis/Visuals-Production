@@ -1,7 +1,7 @@
 import React from 'react';
-import { Camera, Video, Mic, Laptop, ChevronRight } from 'lucide-react';
-import { motion } from "framer-motion";
+import { Camera, Video, Mic, Laptop, Handshake } from 'lucide-react';
 import Landing from '../components/Landing';
+import Services from '../components/Services';
 
 
 const Home = () => {
@@ -28,34 +28,18 @@ const Home = () => {
     }
   ];
 
-  // Text to be animated
-  const text = "Welcome to Visuals Production";
-
-  // Variants for the container and individual letters
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05, // Delay between each letter
-      },
-    },
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <div className="min-h-screen bg-black text-white">
 
       <Landing />
       
+      {/* Service */}
+      <Services />
+
       {/* Equipment Categories */}
-      <section id="equipment" className="py-20 bg-black">
+      {/* <section id="equipment" className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Equipment Categories</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center flex flex-row justify-center items-center"><Handshake className="mr-3 text-red-500"/><span>Our Services </span><Handshake className="ml-2 text-red-500"/></h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {equipmentCategories.map((category, index) => (
               <div key={index} className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
@@ -70,7 +54,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-b from-black to-red-900">
