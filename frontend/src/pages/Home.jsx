@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Video, Mic, Laptop, Handshake } from 'lucide-react';
+import { Camera, Video, Mic, Laptop, ChevronRight } from 'lucide-react';
 import Landing from '../components/Landing';
 import Services from '../components/Services';
 
@@ -60,10 +60,13 @@ const Home = () => {
       <section id="contact" className="py-20 bg-gradient-to-b from-black to-red-900">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8">Contact us to discuss your equipment needs</p>
-          <button className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold">
-            Get in Touch
-          </button>
+          <p className="text-xl mb-8">Contact us to for consultation or related needs</p>
+          <div className='flex justify-center items-center'> 
+            <button className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex justify-center items-center cursor-pointer">
+              Get in Touch
+              <ChevronRight className="ml-2" />
+            </button>
+          </div>
         </div>
       </section>
 
