@@ -2,6 +2,8 @@ import React from 'react';
 import { Camera, Video, Mic, Laptop, ChevronRight } from 'lucide-react';
 import Landing from '../components/Landing';
 import Services from '../components/Services';
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -62,20 +64,16 @@ const Home = () => {
           <h2 className="text-3xl font-bold mb-8">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8">Contact us to for consultation or related needs</p>
           <div className='flex justify-center items-center'> 
-            <button className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex justify-center items-center cursor-pointer">
+            <Link to="/contact" className="text-white bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex justify-center items-center cursor-pointer">
               Get in Touch
               <ChevronRight className="ml-2" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-8">
-        <div className="container mx-auto px-6 text-center text-gray-400">
-          <p>© 2025 Visual Productions. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

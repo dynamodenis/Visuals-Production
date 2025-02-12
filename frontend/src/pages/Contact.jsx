@@ -10,6 +10,7 @@ const Contact = () => {
           <textarea placeholder="Your Message" style={{ display: 'block', margin: '10px 0' }} />
           <button type="submit">Send</button>
         </form>
+        
       </div>
     );
   };
