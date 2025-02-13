@@ -7,7 +7,7 @@ function EquipmentCard(props) {
     return (
         <div
             key={index}
-            className="flex-none w-72 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            className="flex-none w-72 bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:shadow-red transition-shadow cursor-pointer"
         >
             <div className="aspect-square w-full bg-gray-50 rounded-lg mb-4 overflow-hidden">
                 <img
