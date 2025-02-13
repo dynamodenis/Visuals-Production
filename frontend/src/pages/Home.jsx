@@ -3,11 +3,31 @@ import { Camera, Video, Mic, Laptop, ChevronRight } from 'lucide-react';
 import Landing from '../components/Landing';
 import Services from '../components/Services';
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
+import Equipment from '../components/Equipment';
 
 
 const Home = () => {
   const equipmentCategories = [
+    {
+      title: "Camera Equipment",
+      icon: <Camera className="w-8 h-8" />,
+      items: ["DSLR Cameras", "Mirrorless Cameras", "Lenses", "Stabilizers"]
+    },
+    {
+      title: "Video Gear",
+      icon: <Video className="w-8 h-8" />,
+      items: ["Professional Camcorders", "Drones", "Lighting Kits", "Green Screens"]
+    },
+    {
+      title: "Audio Equipment",
+      icon: <Mic className="w-8 h-8" />,
+      items: ["Microphones", "Audio Interfaces", "Mixers", "Studio Monitors"]
+    },
+    {
+      title: "Production Tech",
+      icon: <Laptop className="w-8 h-8" />,
+      items: ["Editing Workstations", "Storage Solutions", "Monitors", "Streaming Gear"]
+    },
     {
       title: "Camera Equipment",
       icon: <Camera className="w-8 h-8" />,
@@ -39,14 +59,15 @@ const Home = () => {
       <Services />
 
       {/* Equipment Categories */}
+      <Equipment />
       {/* <section id="equipment" className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center flex flex-row justify-center items-center"><Handshake className="mr-3 text-red-500"/><span>Our Services </span><Handshake className="ml-2 text-red-500"/></h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-3xl font-bold mb-12 text-center text-black">Rent Equipment</h2>
+          <div className="flex overflow-x-auto space-x-6 pb-4">
             {equipmentCategories.map((category, index) => (
-              <div key={index} className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+              <div key={index} className="flex-shrink-0 bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors w-64">
                 <div className="text-red-500 mb-4">{category.icon}</div>
-                <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">{category.title}</h3>
                 <ul className="space-y-2">
                   {category.items.map((item, idx) => (
                     <li key={idx} className="text-gray-400">{item}</li>
@@ -71,9 +92,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
