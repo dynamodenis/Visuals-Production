@@ -7,48 +7,7 @@ import Equipment from '../components/Equipment';
 
 
 const Home = () => {
-  const equipmentCategories = [
-    {
-      title: "Camera Equipment",
-      icon: <Camera className="w-8 h-8" />,
-      items: ["DSLR Cameras", "Mirrorless Cameras", "Lenses", "Stabilizers"]
-    },
-    {
-      title: "Video Gear",
-      icon: <Video className="w-8 h-8" />,
-      items: ["Professional Camcorders", "Drones", "Lighting Kits", "Green Screens"]
-    },
-    {
-      title: "Audio Equipment",
-      icon: <Mic className="w-8 h-8" />,
-      items: ["Microphones", "Audio Interfaces", "Mixers", "Studio Monitors"]
-    },
-    {
-      title: "Production Tech",
-      icon: <Laptop className="w-8 h-8" />,
-      items: ["Editing Workstations", "Storage Solutions", "Monitors", "Streaming Gear"]
-    },
-    {
-      title: "Camera Equipment",
-      icon: <Camera className="w-8 h-8" />,
-      items: ["DSLR Cameras", "Mirrorless Cameras", "Lenses", "Stabilizers"]
-    },
-    {
-      title: "Video Gear",
-      icon: <Video className="w-8 h-8" />,
-      items: ["Professional Camcorders", "Drones", "Lighting Kits", "Green Screens"]
-    },
-    {
-      title: "Audio Equipment",
-      icon: <Mic className="w-8 h-8" />,
-      items: ["Microphones", "Audio Interfaces", "Mixers", "Studio Monitors"]
-    },
-    {
-      title: "Production Tech",
-      icon: <Laptop className="w-8 h-8" />,
-      items: ["Editing Workstations", "Storage Solutions", "Monitors", "Streaming Gear"]
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-black text-white">

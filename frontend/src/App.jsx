@@ -7,6 +7,7 @@ import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
+import Equipments from './pages/Equipments';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/equipments" element={<Equipments />} />
         </Routes>
         <Footer /> {/* Include Footer at the bottom */}
       </Router>
