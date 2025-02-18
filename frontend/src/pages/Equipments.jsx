@@ -87,7 +87,7 @@ const Equipments = () => {
                                 placeholder="Search products..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className='flex-1 px-1 py-1 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-red-400 focus:border-transparent'
+                                className='flex-1 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-red-400 focus:border-transparent'
                             />
                             <button className='px-2 py-2 bg-red-400 text-white rounded-r hover:bg-red-600 transition-colors'>
                                 <Search className='w-5 h-5' />
