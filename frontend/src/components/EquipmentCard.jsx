@@ -18,11 +18,11 @@ function EquipmentCard(props) {
             </div>
 
             <div className="text-center">
-                <h3 className="text-md font-medium text-gray-900 mb-2">
+                <h3 className="text-md font-small text-gray-900 mb-2 text-sm">
                     {product.title}
                 </h3>
 
-                <p className="text-red-600 font-semibold">
+                <p className="text-red-600 font-semibold font-small text-sm">
                     KSh{product.price.toLocaleString()}.00
                 </p>
             </div>

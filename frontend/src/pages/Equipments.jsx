@@ -80,7 +80,7 @@ const Equipments = () => {
                 <div className='space-y-2'>
                     {/* Search Section */}
                     <div className='space-y-2 flex flex-col justify-start items-start'> 
-                        <h3 className='text-md font-semibold text-gray-600'>Search Products</h3>
+                        <h3 className='text-sm font-semibold text-gray-600'>Search Products</h3>
                         <div className='flex'>
                             <input
                                 type="text"
@@ -97,11 +97,11 @@ const Equipments = () => {
 
                     {/* Categories Section */}
                     <div className='space-y-2 flex flex-col justify-start items-start'>
-                        <h3 className='text-lg font-semibold text-gray-600'>Product Categories</h3>
+                        <h3 className='text-sm font-semibold text-gray-600'>Product Categories</h3>
                         <ul className='space-y-2'>
                             {categories.map((category, index) => (
                                 <li key={index} className='text-gray-600 hover:text-red-500 cursor-pointer'>
-                                    <a href="#" className='flex items-center'>
+                                    <a href="#" className='flex items-center text-sm'>
                                         <ChevronRight className='w-4 h-4 mr-2' />
                                         {category}
                                     </a>
