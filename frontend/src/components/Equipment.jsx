@@ -3,66 +3,10 @@ import { Camera, Video, Mic, Laptop, ChevronLeft, ChevronRight } from 'lucide-re
 import EquipmentCard from './EquipmentCard';
 import photography from '../assets/photography.jpg'
 import gopro from '../assets/gopro.jpg'
+import { useEquipementStore } from '../zustand/store';
 
 const Equipment = () => {
-    const equipmentCategories = [
-        {
-            title: "Camera Equipment",
-            icon: <Camera className="w-8 h-8" />,
-            items: ["DSLR Cameras", "Mirrorless Cameras", "Lenses", "Stabilizers"],
-            price: 3000,
-            image: photography
-        },
-        {
-            title: "Video Gear",
-            icon: <Video className="w-8 h-8" />,
-            items: ["Professional Camcorders", "Drones", "Lighting Kits", "Green Screens"],
-            price: 3000,
-            image: gopro
-        },
-        {
-            title: "Audio Equipment",
-            icon: <Mic className="w-8 h-8" />,
-            items: ["Microphones", "Audio Interfaces", "Mixers", "Studio Monitors"],
-            price: 3000,
-            image: photography
-        },
-        {
-            title: "Production Tech",
-            icon: <Laptop className="w-8 h-8" />,
-            items: ["Editing Workstations", "Storage Solutions", "Monitors", "Streaming Gear"],
-            price: 3000,
-            image: gopro
-        },
-        {
-            title: "Camera Equipment",
-            icon: <Camera className="w-8 h-8" />,
-            items: ["DSLR Cameras", "Mirrorless Cameras", "Lenses", "Stabilizers"],
-            price: 3000,
-            image: photography
-        },
-        {
-            title: "Video Gear",
-            icon: <Video className="w-8 h-8" />,
-            items: ["Professional Camcorders", "Drones", "Lighting Kits", "Green Screens"],
-            price: 3000,
-            image: photography
-        },
-        {
-            title: "Audio Equipment",
-            icon: <Mic className="w-8 h-8" />,
-            items: ["Microphones", "Audio Interfaces", "Mixers", "Studio Monitors"],
-            price: 3000,
-            image: photography
-        },
-        {
-            title: "Production Tech",
-            icon: <Laptop className="w-8 h-8" />,
-            items: ["Editing Workstations", "Storage Solutions", "Monitors", "Streaming Gear"],
-            price: 3000,
-            image: photography
-        }
-    ];
+    const { equipements } = useEquipementStore();
 
     const scrollLeft = () => {
         const container = document.getElementById('equipment-container');
@@ -111,7 +55,7 @@ const Equipment = () => {
                             msOverflowStyle: 'none'
                         }}
                     >
-                        {equipmentCategories.map((product, index) => (
+                        {equipements.map((product, index) => (
                             <EquipmentCard key={index} product={product} />
                         ))}
                     </div>

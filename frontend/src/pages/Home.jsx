@@ -1,13 +1,19 @@
 import React from 'react';
-import { Camera, Video, Mic, Laptop, ChevronRight } from 'lucide-react';
+import {  ChevronRight } from 'lucide-react';
 import Landing from '../components/Landing';
 import Services from '../components/Services';
 import { Link } from 'react-router-dom';
 import Equipment from '../components/Equipment';
+import { useEquipementStore } from '../zustand/store';
+import { useEffect } from 'react';
 
 
 const Home = () => {
+  const { getEquipements } = useEquipementStore();
 
+  useEffect(() => {
+    getEquipements();
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -55,4 +61,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
