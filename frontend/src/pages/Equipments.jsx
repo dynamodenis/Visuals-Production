@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import { Camera, Video, Mic, Laptop, Search, ChevronRight } from 'lucide-react';
 import { useEquipementStore } from '../zustand/store';
 import EquipmentCard from '../components/EquipmentCard';
-import photography from '../assets/photography.jpg'
-import gopro from '../assets/gopro.jpg'
+import AnimateSection from '../components/AnimateSection';
 
 const Equipments = () => {
     const { equipements } = useEquipementStore();
@@ -12,6 +11,7 @@ const Equipments = () => {
 
     return (
         <div className='container mx-auto px-6 py-10'>
+            <AnimateSection>
             <div className='flex flex-col items-center py-10'>
                 <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-500" /><span>Equipment List </span><Mic className="ml-2 text-red-500" /></h2>
                 <div className='italic text-gray-600 text-center md:w-3xl'>
@@ -62,6 +62,7 @@ const Equipments = () => {
                     ))}
                 </div>
             </div>
+            </AnimateSection>
         </div>
     )
 }

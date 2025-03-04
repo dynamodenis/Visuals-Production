@@ -1,6 +1,6 @@
 import React from 'react';
-import { Camera, Video, Mic, Laptop, ChevronRight } from 'lucide-react';
-import { delay, motion } from "framer-motion";
+import { ChevronRight } from 'lucide-react';
+import { motion } from "framer-motion";
 
 
 const Landing = () => {

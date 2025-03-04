@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import Equipments from './pages/Equipments';
 import EquipmentDetail from './pages/EquipmentDetail';
+import AnimateSection from './components/AnimateSection';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,7 +26,9 @@ function App() {
           <Route path="/equipments" element={<Equipments />} />
           <Route path="/equipment/:id" element={<EquipmentDetail />} />
         </Routes>
-        <Footer /> {/* Include Footer at the bottom */}
+        <AnimateSection>
+          <Footer /> {/* Include Footer at the bottom */}
+        </AnimateSection>
       </Router>
     </>
   )
