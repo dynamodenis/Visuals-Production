@@ -36,7 +36,8 @@ const Services = () => {
         <div className='flex flex-col items-center py-10'>
           <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Handshake className="mr-3 text-red-500" /><span>Services</span><Handshake className="ml-2 text-red-500" /></h2>
           <div className='italic text-gray-600 text-center md:w-3xl'>
-            <p>From DSLR cameras to studio lighting and sound equipment, we offer premium rentals for filmmakers, vloggers, and creatives looking to produce high-quality content.</p>
+            <p>We are a full-service digital agency specializing in media buying strategies, creative content development, professional video production, and data-driven digital marketing strategies. 
+            From concept to execution, we help brands tell their stories and connect with their audience.</p>
           </div>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-4 pb-4'>
@@ -64,7 +65,7 @@ const Services = () => {
           </div>
 
           <div
-            className="grid md:grid-cols-3 col-span-3 border border-gray-300 rounded-lg bg-white shadow-md p-4 gap-4"
+            className="grid md:grid-cols-1 col-span-3 gap-4"
           >
             {selectedService.component}
           </div>
