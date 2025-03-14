@@ -44,11 +44,11 @@ function ExpertPhotography() {
   }
 
   return (
-    <div className='col-span-3 w-full flex flex-col items-start justify-start'>
+    <div className='cols-span-1 md:col-span-3 w-full flex flex-col items-start justify-start mt-4'>
       {/* Featured Video - Now uses activeVideo */}
       <div className="w-full bg-gray-50 mb-4 overflow-hidden">
         <iframe
-          className="w-full h-64 sm:h-80 md:h-96"
+          className="md:w-full h-64 sm:h-80 md:h-96 "
           src={activeVideo.url}
           title={activeVideo.title || "Featured Video"}
           frameBorder="0"
@@ -86,7 +86,7 @@ function ExpertPhotography() {
           {videos_url.map((video) => (
             <div 
               key={video.id} 
-              className={`flex-none w-72 mr-4 cursor-pointer transition-all duration-200 ${activeVideo.id === video.id ? 'scale-105 shadow-lg' : 'opacity-80 hover:opacity-100'}`}
+              className={`flex-none md:w-72 md:mr-2 cursor-pointer transition-all duration-200 ${activeVideo.id === video.id ? 'scale-105 shadow-lg' : 'opacity-80 hover:opacity-100'}`}
               onClick={() => handleVideoSelect(video)}
             >
               <div className="bg-gray-50 rounded-lg overflow-hidden shadow-sm">
@@ -112,8 +112,9 @@ function ExpertPhotography() {
           ))}
         </div>
       </div>
+      
 
-      <div className='flex-1 mb-6'>
+      <div className='flex flex-col mb-6'>
         <h2 className='text-xl font-semibold text-gray-800 mb-4'>Expert Videography</h2>
         <p className='text-gray-600 text-sm text-justify mb-3'>
           We specialize in professional videography services, capturing every moment with precision and creativity.
