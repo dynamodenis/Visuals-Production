@@ -200,4 +200,4 @@ function VideoAudioPodcast() {
   )
 }
 
-export default VideoAudioPodcast
+export default React.memo(VideoAudioPodcast)
