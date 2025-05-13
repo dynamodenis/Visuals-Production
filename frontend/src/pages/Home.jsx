@@ -10,11 +10,22 @@ import { useEffect } from 'react';
 
 
 const Home = () => {
-  const { getEquipements } = useEquipementStore();
+  const { getEquipements, equipements } = useEquipementStore();
+
 
   useEffect(() => {
-    getEquipements();
+     // Fetch equipment data and then store in localStorage
+    const fetchAndStoreEquipements = async () => {
+      await getEquipements(); // Assumes this populates the store asynchronously
+      const updatedEquipements = useEquipementStore.getState().equipements;
+      if (updatedEquipements) {
+        localStorage.setItem('equipements', JSON.stringify(updatedEquipements));
+      }
+    };
+
+    fetchAndStoreEquipements();
   }, []);
+
 
   return (
     <div className="min-h-screen bg-black text-white">

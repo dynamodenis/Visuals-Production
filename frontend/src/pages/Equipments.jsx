@@ -1,13 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Camera, Video, Mic, Laptop, Search, ChevronRight } from 'lucide-react';
 import { useEquipementStore } from '../zustand/store';
 import EquipmentCard from '../components/EquipmentCard';
 import AnimateSection from '../components/AnimateSection';
 
 const Equipments = () => {
-    const { equipements } = useEquipementStore();
+    // const { equipements } = useEquipementStore();
     const [searchQuery, setSearchQuery] = useState('');
     const categories = ["Camera Equipment", "Video Gear", "Audio Equipment", "Production Tech"];
+
+    const [localEquipements, setLocalEquipements] = useState([]);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('equipements');
+        if (stored) {
+        setLocalEquipements(JSON.parse(stored));
+        }
+    }, []);
 
     return (
         <div className='container mx-auto px-6 py-10'>
@@ -57,7 +66,7 @@ const Equipments = () => {
                 <div
                     className="grid md:grid-cols-3 col-span-3 justify-center items-center pb-4 gap-4"
                 >
-                    {equipements.map((product, index) => (
+                    {localEquipements?.map((product, index) => (
                         <EquipmentCard key={index} product={product} />
                     ))}
                 </div>

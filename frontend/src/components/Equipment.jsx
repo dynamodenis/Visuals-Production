@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Camera, Video, Mic, Laptop, ChevronLeft, ChevronRight } from 'lucide-react';
 import EquipmentCard from './EquipmentCard';
 import photography from '../assets/photography.jpg'
@@ -7,6 +7,14 @@ import { useEquipementStore } from '../zustand/store';
 
 const Equipment = () => {
     const { equipements } = useEquipementStore();
+    const [localEquipements, setLocalEquipements] = useState([]);
+
+    useEffect(() => {
+        const stored = localStorage.getItem('equipements');
+        if (stored) {
+            setLocalEquipements(JSON.parse(stored));
+        }
+    }, []);
 
     const scrollLeft = () => {
         const container = document.getElementById('equipment-container');
@@ -26,7 +34,7 @@ const Equipment = () => {
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Camera className="mr-3 text-red-500" /><span>Equipment Rental </span><Mic className="ml-2 text-red-500" /></h2>
                 <div className='flex flex-col items-center justify-center'>
-                    <div className='md:w-3xl mb-5 italic text-gray-800'>We specialize in renting high-quality production equipment, including cameras, audio gear, and lighting kits, to bring your creative projects to life. 
+                    <div className='md:w-3xl mb-5 italic text-gray-800'>We specialize in renting high-quality production equipment, including cameras, audio gear, and lighting kits, to bring your creative projects to life.
                         Whether you're filming, recording, or streaming, we provide reliable and professional tools to meet your needs. Let us equip you for success with top-tier production solutions.
                     </div>
                 </div>
@@ -55,7 +63,7 @@ const Equipment = () => {
                             msOverflowStyle: 'none'
                         }}
                     >
-                        {equipements.map((product, index) => (
+                        {localEquipements?.map((product, index) => (
                             <EquipmentCard key={index} product={product} />
                         ))}
                     </div>
