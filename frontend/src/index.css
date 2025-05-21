@@ -23,3 +23,29 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar-button {
+  background-color: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar-track-piece:vertical {
+  background-color: transparent;
+}
+
+.dark_blue_bg {
+  background-color: #070716;
+}

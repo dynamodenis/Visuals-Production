@@ -8,7 +8,7 @@ function VideoAudioPodcast() {
       <div className="w-full mb-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Video, Audio and Podcast Production</h1>
         <p className="text-gray-600 text-sm text-justify mb-3">
-          At Visuals Production, we transform your ideas into compelling visual and audio content 
+          At Prism Media, we transform your ideas into compelling visual and audio content 
           that resonates with your target audience. Our professional production team combines creative 
           storytelling with technical expertise to deliver high-quality videos, audio productions, 
           and podcasts that elevate your brand's message.

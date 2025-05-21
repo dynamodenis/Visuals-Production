@@ -13,7 +13,7 @@ const About = () => {
         <div className=" flex flex-col gap-8">
           <div className='flex flex-col justify-center items-center gap-2'>
             <div className='text-lg font-semibold text-red-900'>Our Mission</div>
-            <div className='italic text-gray-600'> Founded on the vision of transforming how brands connect with audiences, Visuals Production delivers innovative content that makes a difference. We offer cutting-edge creative solutions that empower businesses, everywhere to imagine, create, and bring every digital story to life.
+            <div className='italic text-gray-600'> Founded on the vision of transforming how brands connect with audiences, Prism Media delivers innovative content that makes a difference. We offer cutting-edge creative solutions that empower businesses, everywhere to imagine, create, and bring every digital story to life.
             </div>
           </div>
 

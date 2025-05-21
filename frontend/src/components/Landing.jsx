@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Landing = () => {
   // Text to be animated
-  const text = "Welcome to Visuals Production.";
+  const text = "Welcome to Prism Media.";
 
   const our_work_array = [
     "Producing marketing videos, event videos, and social media content.",

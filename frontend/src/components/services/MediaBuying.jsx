@@ -21,7 +21,7 @@ function MediaBuying() {
       <div className="w-full mb-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Media Buying Strategies</h1>
         <p className="text-gray-600 text-sm text-justify mb-3">
-          At Visuals Production, we don't just create content—we ensure it reaches your target audience effectively.
+          At Prism Media, we don't just create content—we ensure it reaches your target audience effectively.
           Our comprehensive media buying services help you maximize ROI across all digital platforms, from social media
           to search engines, with data-driven strategies tailored to your business goals.
         </p>
@@ -48,7 +48,7 @@ function MediaBuying() {
           </div>
         </div>
         <p className="text-gray-600 text-sm italic">
-          "Visuals Production transformed our digital presence with strategic media buying that precisely targeted our audience and maximized our budget." — Client Name, Company
+          "Prism Media transformed our digital presence with strategic media buying that precisely targeted our audience and maximized our budget." — Client Name, Company
         </p>
       </div>
       
@@ -331,7 +331,7 @@ function MediaBuying() {
         </p>
         
         <div className="bg-red-50 p-5 rounded-lg">
-          <h3 className="font-medium text-gray-800 mb-3">The Visuals Production Advantage</h3>
+          <h3 className="font-medium text-gray-800 mb-3">The Prism Media Advantage</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start gap-2">
               <div className="mt-1 text-red-500">✓</div>

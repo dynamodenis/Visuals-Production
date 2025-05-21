@@ -12,7 +12,7 @@ const Navbar = () => {
             <nav className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     <h1 className="text-2xl font-bold">
-                        <Link to="/" className="hover:text-gray-300">Visuals Production</Link>
+                        <Link to="/" className="hover:text-gray-300">Prism Media</Link>
                     </h1>
                     
                     {/* Mobile menu button */}

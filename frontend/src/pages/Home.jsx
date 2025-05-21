@@ -28,35 +28,40 @@ const Home = () => {
 
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="flex flex-col min-h-screen bg-black text-white ">
+      {/* Landing takes up the first full viewport */}
+      <section className="h-screen">
+        <Landing />
+      </section>
 
-      <Landing />
+      {/* The remaining content follows after scrolling past the Landing */}
+      <div className="flex-grow">
+        {/* Service */}
+        <AnimateSection>
+          <Services />
+        </AnimateSection>
 
-      {/* Service */}
-      <AnimateSection>
-        <Services />
-      </AnimateSection>
+        {/* Equipment Categories */}
+        <AnimateSection>
+          <Equipment />
+        </AnimateSection>
 
-      {/* Equipment Categories */}
-      <AnimateSection>
-        <Equipment />
-      </AnimateSection>
-
-      {/* Contact Section */}
-      <AnimateSection>
-        <section id="contact" className="py-20 bg-gradient-to-b from-black to-red-900">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold mb-8">Ready to Start Your Project?</h2>
-            <p className="text-xl mb-8">Contact us to for consultation or related needs</p>
-            <div className='flex justify-center items-center'>
-              <Link to="/contact" className="text-white bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex justify-center items-center cursor-pointer">
-                Get in Touch
-                <ChevronRight className="ml-2" />
-              </Link>
+        {/* Contact Section */}
+        <AnimateSection>
+          <section id="contact" className="py-20 bg-gradient-to-b from-black to-red-900">
+            <div className="container mx-auto px-6 text-center">
+              <h2 className="text-3xl font-bold mb-8">Ready to Start Your Project?</h2>
+              <p className="text-xl mb-8">Contact us for consultation or related needs</p>
+              <div className="flex justify-center items-center">
+                <Link to="/contact" className="text-white bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex justify-center items-center cursor-pointer">
+                  Get in Touch
+                  <ChevronRight className="ml-2" />
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
-      </AnimateSection>
+          </section>
+        </AnimateSection>
+      </div>
     </div>
   );
 };

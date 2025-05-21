@@ -20,7 +20,7 @@ function EquipmentRental() {
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Professional Equipment Rental</h1>
         <p className="text-gray-600 text-sm text-justify mb-3">
           Access industry-standard production equipment without the high cost of ownership. 
-          At Visuals Production, we offer a comprehensive range of professional audio, video, 
+          At Prism Media, we offer a comprehensive range of professional audio, video, 
           and lighting equipment for rent, whether you're working on a commercial project, 
           independent film, podcast, or special event.
         </p>
