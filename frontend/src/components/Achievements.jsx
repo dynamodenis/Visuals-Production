@@ -1,6 +1,12 @@
 import React from 'react'
 import { Medal, TrophyIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import achievements_background1 from '../assets/achievements_background1.jpg'
+import { motion } from 'framer-motion';
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+};
 
 function Achievements() {
   const statsData = [
@@ -23,6 +29,39 @@ function Achievements() {
       icon: "🎁",
       label: "Gifts",
       value: "76"
+    }
+  ];
+
+  const achievementData = [
+    {
+      id: 1,
+      title: "Achievement Story 1",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      id: 2,
+      title: "Achievement Story 2",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      id: 3,
+      title: "Achievement Story 3",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      id: 4,
+      title: "Achievement Story 4",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      id: 5,
+      title: "Achievement Story 5",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      id: 6,
+      title: "Achievement Story 6",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
     }
   ];
 
@@ -51,32 +90,51 @@ function Achievements() {
       <div className="relative z-20 container mx-auto px-4 text-center h-full flex flex-col">
         {/* Top 60% - Achievement Stories */}
         <div className="flex-grow" style={{ height: '60%' }}>
-          <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-white"><Medal className="mr-3 text-red-500" /><span>Achievements </span><TrophyIcon className="ml-2 text-red-500" /></h2>
+          <motion.h2
+            className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-white"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
+          ><Medal className="mr-3 text-red-500" /><span>Achievements </span><TrophyIcon className="ml-2 text-red-500" /></motion.h2>
 
           {/* Achievements cards */}
           {/* Scroll Buttons */}
-          <button
+          <motion.button
             onClick={scrollLeft}
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-red-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
             onClick={scrollRight}
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-red-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
           >
             <ChevronRight className="w-6 h-6 text-white" />
-          </button>
+          </motion.button>
 
-          <div className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4 h-full" id="achievement-container" style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none'
-          }}>
+          <motion.div className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4 h-full" id="achievement-container"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}>
             {/* Achievement story cards */}
-            {[1, 2, 3, 4, 5, 6, 7].map((item) => (
+            {achievementData.map((item) => (
               <div
-                key={item}
+                key={item.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden flex-none w-96 md:w-1/2 h-full flex flex-col justify-between dark_blue_bg opacity-80"
 
               >
@@ -94,24 +152,22 @@ function Achievements() {
 
 
                   {/* Content Section */}
-                  <div className="md:w-1/2 p-6 dark_blue_bg text-white flex flex-col justify-center">
-                    <h3 className="text-xl font-bold mb-3">Achievement {item}</h3>
-                    <p className="text-sm mb-4 opacity-90">
-                      This is a compelling achievement story that demonstrates our success and expertise in delivering exceptional results.
-                    </p>
-                    <p className="text-xs italic mb-4 opacity-75">Image from Freepik</p>
-                    <button className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors w-fit">
-                      READ MORE
-                    </button>
+                  <div className="md:w-1/2 p-6 dark_blue_bg text-white flex flex-col justify-center text-left">
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-sm mb-4 opacity-90">{item.description}</p>
+
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom 40% - Stats Cards */}
-        <div className="mt-14 md:mt-20" style={{ height: '40%' }}>
+        <motion.div className="mt-14 md:mt-20" variants={fadeUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }} style={{ height: '40%' }}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {statsData.map((stat, index) => (
               <div
@@ -124,7 +180,7 @@ function Achievements() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   )

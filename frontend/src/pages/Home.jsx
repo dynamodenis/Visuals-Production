@@ -8,14 +8,19 @@ import Equipment from '../components/Equipment';
 import Achievements from '../components/Achievements';
 import { useEquipementStore } from '../zustand/store';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+};
 
 const Home = () => {
   const { getEquipements, equipements } = useEquipementStore();
 
 
   useEffect(() => {
-     // Fetch equipment data and then store in localStorage
+    // Fetch equipment data and then store in localStorage
     const fetchAndStoreEquipements = async () => {
       await getEquipements(); // Assumes this populates the store asynchronously
       const updatedEquipements = useEquipementStore.getState().equipements;
@@ -55,7 +60,10 @@ const Home = () => {
         {/* Contact Section */}
         <AnimateSection>
           <section id="contact" className="py-20 bg-gradient-to-b from-black to-red-900">
-            <div className="container mx-auto px-6 text-center">
+            <motion.div className="container mx-auto px-6 text-center" variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.2 }}>
               <h2 className="text-3xl font-bold mb-8">Ready to Start Your Project?</h2>
               <p className="text-xl mb-8">Contact us for consultation or related needs</p>
               <div className="flex justify-center items-center">
@@ -64,7 +72,7 @@ const Home = () => {
                   <ChevronRight className="ml-2" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </section>
         </AnimateSection>
       </div>
