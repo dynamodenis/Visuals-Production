@@ -29,7 +29,7 @@ const Equipment = () => {
     return (
         <section className="py-15 bg-white relative shadow-md">
             {/* Top Gradient Border */}
-            <div className="absolute top-0 left-0 right-0 h-7 bg-gradient-to-b from-gray-900 to-white" />
+            {/* <div className="absolute top-0 left-0 right-0 h-7 bg-gradient-to-b from-gray-900 to-white" /> */}
 
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Camera className="mr-3 text-red-500" /><span>Equipment Rental </span><Mic className="ml-2 text-red-500" /></h2>
