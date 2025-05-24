@@ -5,6 +5,7 @@ import Services from '../components/Services';
 import AnimateSection from '../components/AnimateSection';
 import { Link } from 'react-router-dom';
 import Equipment from '../components/Equipment';
+import Achievements from '../components/Achievements';
 import { useEquipementStore } from '../zustand/store';
 import { useEffect } from 'react';
 
@@ -28,7 +29,7 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white ">
+    <div className="flex flex-col min-h-screen text-white ">
       {/* Landing takes up the first full viewport */}
       <section className="h-screen">
         <Landing />
@@ -39,6 +40,11 @@ const Home = () => {
         {/* Service */}
         <AnimateSection>
           <Services />
+        </AnimateSection>
+
+        {/* Achievements */}
+        <AnimateSection>
+          <Achievements />
         </AnimateSection>
 
         {/* Equipment Categories */}
