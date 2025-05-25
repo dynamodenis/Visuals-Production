@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import prism_logo from '../assets/prism_logo.svg'
 
 const title = "Prism Media";
@@ -11,33 +11,8 @@ const Navbar = () => {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // Animation variants for the letters
-    const letterVariants = {
-        hidden: { 
-            y: 50, 
-            opacity: 0,
-        },
-        visible: { 
-            y: 0, 
-            opacity: 1,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        }
-    };
-    
-    // Container animation for staggered effect
-    const containerVariants = {
-        hidden: { opacity: 1 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.08,
-                delayChildren: 0.2
-            }
-        }
-    };
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
 
     return (
         <header className="fixed top-0 left-0 w-full z-50 dark_blue_bg  shadow-md">
@@ -48,24 +23,21 @@ const Navbar = () => {
                             <img src={prism_logo} alt="Prism Media Logo" className="w-15 h-15 mr-2 object-cover rounded-full" />
                         </div>
 
-                        <Link to="/" className="hover:text-gray-300">{
-                            <motion.div 
-                                className="flex space-x-0.5"
-                                variants={containerVariants}
-                                initial="hidden"
-                                animate="visible"
-                            >
+                        <Link to="/" className="hover:text-gray-300">
+
                                 {title.split('').map((letter, index) => (
                                     <motion.span
+                                        ref={ref}
                                         key={index}
-                                        variants={letterVariants}
+                                        initial={{ opacity: 0 }}
+                                        animate={isInView ? { opacity: 1 } : {}}
+                                        transition={{ duration: 0.2, delay: index * 0.1 }}
                                         className="inline-block"
                                     >
                                         {letter === ' ' ? '\u00A0' : letter}
                                     </motion.span>
                                 ))}
-                            </motion.div>
-                        }</Link>
+                        </Link>
                     </h1>
 
                     {/* Mobile menu button */}
