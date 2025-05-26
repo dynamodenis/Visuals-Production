@@ -4,7 +4,7 @@ import AnimateSection from '../components/AnimateSection';
 
 const About = () => {
   return (
-    <div className='container mx-auto px-4 py-10 md:w-5xl'>
+    <div className='container mx-auto px-4 py-16 md:w-5xl'>
       <AnimateSection>
         <div className='flex flex-col items-center py-10'>
           <h2 className="text-3xl font-bold text-center flex flex-row justify-center items-center text-gray-900"><Eye className="mr-3 text-red-900" /><span>About Us </span><AudioWaveform className="ml-2 text-red-900" /></h2>

@@ -4,7 +4,7 @@ import AnimateSection from '../components/AnimateSection';
 
 const Contact = () => {
   return (
-    <div className='container mx-auto px-4 py-10 md:w-5xl'>
+    <div className='container mx-auto px-4 py-16 md:w-5xl'>
       <AnimateSection>
         <div className='flex flex-col items-center py-10'>
           <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Phone className="mr-3 text-red-500" /><span>Contact Us </span><Mail className="ml-2 text-red-500" /></h2>

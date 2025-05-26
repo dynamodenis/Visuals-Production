@@ -19,7 +19,7 @@ const Equipments = () => {
     }, []);
 
     return (
-        <div className='container mx-auto px-6 py-10'>
+        <div className='container mx-auto px-6 py-16'>
             <AnimateSection>
             <div className='flex flex-col items-center py-10'>
                 <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-500" /><span>Equipment List </span><Mic className="ml-2 text-red-500" /></h2>
