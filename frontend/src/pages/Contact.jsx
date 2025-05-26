@@ -7,7 +7,7 @@ const Contact = () => {
     <div className='container mx-auto px-4 py-16 md:w-5xl'>
       <AnimateSection>
         <div className='flex flex-col items-center py-10'>
-          <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Phone className="mr-3 text-red-500" /><span>Contact Us </span><Mail className="ml-2 text-red-500" /></h2>
+          <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Phone className="mr-3 text-pink-600" /><span>Contact Us </span><Mail className="ml-2 text-pink-600" /></h2>
           <div className='italic text-gray-600 text-center md:w-3xl'>
             <p>We’d love to hear from you! Whether you have a question, a project idea, or just want to say hello, we’re here to help. Fill out the form below, and we’ll get back to you as soon as possible!</p>
           </div>
@@ -59,7 +59,7 @@ const Contact = () => {
                 {/* First Name */}
                 <div>
                   <label className="block text-gray-600 text-sm font-medium mb-2 float-left">
-                    First Name <span className="text-red-500">*</span>
+                    First Name <span className="text-pink-600">*</span>
                   </label>
                   <input
                     type="text"
@@ -83,7 +83,7 @@ const Contact = () => {
                 {/* Phone/Mobile */}
                 <div className='flex flex-col justify-start items-start'>
                   <label className="block text-gray-600 text-sm font-medium mb-2">
-                    Phone/Mobile <span className="text-red-500">*</span>
+                    Phone/Mobile <span className="text-pink-600">*</span>
                   </label>
                   <div className="flex">
                     <select className="px-2 py-2 border border-r-0 border-red-400 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-400">
@@ -100,7 +100,7 @@ const Contact = () => {
                 {/* Email */}
                 <div>
                   <label className="block text-gray-600 text-sm font-medium mb-2 float-left">
-                    Email <span className="text-red-500">*</span>
+                    Email <span className="text-pink-600">*</span>
                   </label>
                   <input
                     type="email"
@@ -113,7 +113,7 @@ const Contact = () => {
               {/* Message */}
               <div>
                 <label className="block text-gray-600 text-sm font-medium mb-2 float-left">
-                  Tell us a bit more about your request or business needs <span className="text-red-500">*</span>
+                  Tell us a bit more about your request or business needs <span className="text-pink-600">*</span>
                 </label>
                 <textarea
                   rows={6}

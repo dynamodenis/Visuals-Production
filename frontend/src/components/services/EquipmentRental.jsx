@@ -28,7 +28,7 @@ function EquipmentRental() {
         <div className="flex justify-center my-6">
           <a 
             href="/equipments" 
-            className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 inline-block text-md font-medium text-center"
+            className="bg-pink-600  text-white px-6 py-3 rounded-md hover:bg-red-700 inline-block text-md font-medium text-center"
           >
             View All Equipment
           </a>
@@ -41,7 +41,7 @@ function EquipmentRental() {
           <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
             <div className="flex justify-center mb-4">
               <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
-                <span className="text-red-600 text-xl font-bold">1</span>
+                <span className="text-pink-600  text-xl font-bold">1</span>
               </div>
             </div>
             <h3 className="text-center font-medium text-gray-800 mb-2">Browse & Reserve</h3>
@@ -53,7 +53,7 @@ function EquipmentRental() {
           <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
             <div className="flex justify-center mb-4">
               <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
-                <span className="text-red-600 text-xl font-bold">2</span>
+                <span className="text-pink-600  text-xl font-bold">2</span>
               </div>
             </div>
             <h3 className="text-center font-medium text-gray-800 mb-2">Pickup or Delivery</h3>
@@ -65,7 +65,7 @@ function EquipmentRental() {
           <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
             <div className="flex justify-center mb-4">
               <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
-                <span className="text-red-600 text-xl font-bold">3</span>
+                <span className="text-pink-600  text-xl font-bold">3</span>
               </div>
             </div>
             <h3 className="text-center font-medium text-gray-800 mb-2">Return</h3>
@@ -82,7 +82,7 @@ function EquipmentRental() {
           <div className="border border-gray-200 rounded-lg p-5">
             <h3 className="text-center font-medium text-gray-800 mb-3">Daily Rentals</h3>
             <div className="flex justify-center mb-3">
-              <Clock size={32} className="text-red-500" />
+              <Clock size={32} className="text-pink-600" />
             </div>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-gray-600 text-sm">
@@ -103,7 +103,7 @@ function EquipmentRental() {
           <div className="border border-gray-200 rounded-lg p-5">
             <h3 className="text-center font-medium text-gray-800 mb-3">Weekly Rentals</h3>
             <div className="flex justify-center mb-3">
-              <Film size={32} className="text-red-500" />
+              <Film size={32} className="text-pink-600" />
             </div>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-gray-600 text-sm">
@@ -124,7 +124,7 @@ function EquipmentRental() {
           <div className="border border-gray-200 rounded-lg p-5">
             <h3 className="text-center font-medium text-gray-800 mb-3">Monthly Rentals</h3>
             <div className="flex justify-center mb-3">
-              <Radio size={32} className="text-red-500" />
+              <Radio size={32} className="text-pink-600" />
             </div>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-gray-600 text-sm">
@@ -187,15 +187,15 @@ function EquipmentRental() {
           </p>
           <ul className="space-y-2">
             <li className="flex items-center gap-2 text-gray-600 text-sm">
-              <div className="text-red-500 text-xs">■</div>
+              <div className="text-pink-600 text-xs">■</div>
               <span>Daily equipment protection plans</span>
             </li>
             <li className="flex items-center gap-2 text-gray-600 text-sm">
-              <div className="text-red-500 text-xs">■</div>
+              <div className="text-pink-600 text-xs">■</div>
               <span>Use your own production insurance</span>
             </li>
             <li className="flex items-center gap-2 text-gray-600 text-sm">
-              <div className="text-red-500 text-xs">■</div>
+              <div className="text-pink-600 text-xs">■</div>
               <span>Proof of insurance required for high-value rentals</span>
             </li>
           </ul>
@@ -208,15 +208,15 @@ function EquipmentRental() {
           </p>
           <ul className="space-y-2">
             <li className="flex items-center gap-2 text-gray-600 text-sm">
-              <div className="text-red-500 text-xs">■</div>
+              <div className="text-pink-600 text-xs">■</div>
               <span>Phone support during business hours</span>
             </li>
             <li className="flex items-center gap-2 text-gray-600 text-sm">
-              <div className="text-red-500 text-xs">■</div>
+              <div className="text-pink-600 text-xs">■</div>
               <span>Emergency support for active productions</span>
             </li>
             <li className="flex items-center gap-2 text-gray-600 text-sm">
-              <div className="text-red-500 text-xs">■</div>
+              <div className="text-pink-600 text-xs">■</div>
               <span>Equipment tutorials available</span>
             </li>
           </ul>
@@ -227,10 +227,10 @@ function EquipmentRental() {
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Rent Professional Equipment?</h2>
         <p className="text-gray-600 text-sm mb-4">Browse our complete inventory and book your equipment today for your next production.</p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <a href="/equipments" className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
+          <a href="/equipments" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
             Browse Equipment Catalog
           </a>
-          <a href="/contact" className="bg-white border border-red-600 text-red-600 px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
+          <a href="/contact" className="bg-white border border-red-600 text-pink-600  px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
             Contact Rental Department
           </a>
         </div>

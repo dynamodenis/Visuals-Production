@@ -32,7 +32,7 @@ function EquipmentCard(props) {
                     {product.title}
                 </h3>
 
-                <p className="text-red-600 font-semibold font-small text-sm">
+                <p className="text-pink-600  font-semibold font-small text-sm">
                     KSh{product.price.toLocaleString()}.00
                 </p>
             </div>

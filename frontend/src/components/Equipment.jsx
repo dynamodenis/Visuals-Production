@@ -39,7 +39,7 @@ const Equipment = () => {
                 <motion.h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900" variants={fadeUpVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ amount: 0.2 }}><Camera className="mr-3 text-red-500" /><span>Equipment Rental </span><Mic className="ml-2 text-red-500" /></motion.h2>
+                    viewport={{ amount: 0.2 }}><Camera className="mr-3 text-pink-600" /><span>Equipment Rental </span><Mic className="ml-2 text-pink-600" /></motion.h2>
                 <motion.div className='flex flex-col items-center justify-center' variants={fadeUpVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -56,7 +56,7 @@ const Equipment = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ amount: 0.2 }}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-red-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors"
                     >
                         <ChevronLeft className="w-6 h-6 text-white" />
                     </motion.button>
@@ -67,7 +67,7 @@ const Equipment = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ amount: 0.2 }}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-red-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors"
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors"
                     >
                         <ChevronRight className="w-6 h-6 text-white" />
                     </motion.button>

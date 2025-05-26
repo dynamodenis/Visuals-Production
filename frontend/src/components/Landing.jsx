@@ -93,7 +93,7 @@ const Landing = () => {
                 </motion.li>
               ))}
             </motion.ul>
-            <button className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex items-center">
+            <button className="bg-pink-600  hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex items-center">
               Equipment Marketplace
               <ChevronRight className="ml-2" />
             </button>

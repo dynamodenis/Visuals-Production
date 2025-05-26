@@ -21,9 +21,9 @@ function Services() {
                     whileInView="visible"
                     viewport={{ amount: 0.3 }}
                 >
-                    <Handshake className="mr-3 text-red-500" />
+                    <Handshake className="mr-3 text-pink-600" />
                     <span>Our Services</span>
-                    <Handshake className="ml-2 text-red-500" />
+                    <Handshake className="ml-2 text-pink-600" />
                 </motion.h2>
                 <div className="flex flex-col items-center justify-center h-full text-center">
 
@@ -44,6 +44,7 @@ function Services() {
 "
                         image={photography}
                         delay={0}
+                        index={1}
                     />
                     <LandingServicePanel
                         title="Media Buying Strategies"
@@ -51,6 +52,7 @@ function Services() {
                                 From targeted ad campaigns to performance analytics, we craft winning media buying strategies that drive engagement and conversions."
                         image={photography}
                         delay={0.2}
+                        index={2}
                     />
                     <LandingServicePanel
                         title="Content Creation Equipments Rental"
@@ -58,6 +60,7 @@ function Services() {
 "
                         image={photography}
                         delay={0.6}
+                        index={3}
                     />
                 </div>
             </div>

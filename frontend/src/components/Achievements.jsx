@@ -96,7 +96,7 @@ function Achievements() {
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}
-          ><Medal className="mr-3 text-red-500" /><span>Achievements </span><TrophyIcon className="ml-2 text-red-500" /></motion.h2>
+          ><Medal className="mr-3 text-pink-600" /><span>Achievements </span><TrophyIcon className="ml-2 text-pink-600" /></motion.h2>
 
           {/* Achievements cards */}
           {/* Scroll Buttons */}
@@ -106,7 +106,7 @@ function Achievements() {
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-red-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
           </motion.button>
@@ -117,7 +117,7 @@ function Achievements() {
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-red-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
           >
             <ChevronRight className="w-6 h-6 text-white" />
           </motion.button>

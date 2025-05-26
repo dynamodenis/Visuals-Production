@@ -30,20 +30,20 @@ function MediaBuying() {
       {/* Featured Campaign Success */}
       <div className="w-full bg-gray-50 p-6 rounded-lg shadow-sm mb-6">
         <div className="flex items-center gap-2 mb-4">
-          <Award size={24} className="text-red-500" />
+          <Award size={24} className="text-pink-600" />
           <h2 className="text-xl font-semibold text-gray-800">Featured Campaign Success</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-            <span className="text-3xl font-bold text-red-500 mb-1">350%</span>
+            <span className="text-3xl font-bold text-pink-600 mb-1">350%</span>
             <span className="text-gray-600 text-sm text-center">ROI Increase</span>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-            <span className="text-3xl font-bold text-red-500 mb-1">45%</span>
+            <span className="text-3xl font-bold text-pink-600 mb-1">45%</span>
             <span className="text-gray-600 text-sm text-center">Lower Cost Per Acquisition</span>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
-            <span className="text-3xl font-bold text-red-500 mb-1">5.2M</span>
+            <span className="text-3xl font-bold text-pink-600 mb-1">5.2M</span>
             <span className="text-gray-600 text-sm text-center">Impressions Generated</span>
           </div>
         </div>
@@ -283,7 +283,7 @@ function MediaBuying() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-start gap-3">
             <div className="mt-1">
-              <PieChart size={20} className="text-red-500" />
+              <PieChart size={20} className="text-pink-600" />
             </div>
             <div>
               <h4 className="font-medium text-gray-800 mb-1">Advanced Analytics</h4>
@@ -293,7 +293,7 @@ function MediaBuying() {
           
           <div className="flex items-start gap-3">
             <div className="mt-1">
-              <BarChart2 size={20} className="text-red-500" />
+              <BarChart2 size={20} className="text-pink-600" />
             </div>
             <div>
               <h4 className="font-medium text-gray-800 mb-1">Competitive Intelligence</h4>
@@ -303,7 +303,7 @@ function MediaBuying() {
           
           <div className="flex items-start gap-3">
             <div className="mt-1">
-              <Users size={20} className="text-red-500" />
+              <Users size={20} className="text-pink-600" />
             </div>
             <div>
               <h4 className="font-medium text-gray-800 mb-1">Audience Insights</h4>
@@ -313,7 +313,7 @@ function MediaBuying() {
           
           <div className="flex items-start gap-3">
             <div className="mt-1">
-              <Clock size={20} className="text-red-500" />
+              <Clock size={20} className="text-pink-600" />
             </div>
             <div>
               <h4 className="font-medium text-gray-800 mb-1">Real-Time Optimization</h4>
@@ -334,33 +334,33 @@ function MediaBuying() {
           <h3 className="font-medium text-gray-800 mb-3">The Prism Media Advantage</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start gap-2">
-              <div className="mt-1 text-red-500">✓</div>
+              <div className="mt-1 text-pink-600">✓</div>
               <p className="text-gray-600 text-sm">Integrated production and distribution strategy</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="mt-1 text-red-500">✓</div>
+              <div className="mt-1 text-pink-600">✓</div>
               <p className="text-gray-600 text-sm">Platform-optimized content creation</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="mt-1 text-red-500">✓</div>
+              <div className="mt-1 text-pink-600">✓</div>
               <p className="text-gray-600 text-sm">Consistent messaging across all touchpoints</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="mt-1 text-red-500">✓</div>
+              <div className="mt-1 text-pink-600">✓</div>
               <p className="text-gray-600 text-sm">Streamlined workflow and faster turnaround</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="mt-1 text-red-500">✓</div>
+              <div className="mt-1 text-pink-600">✓</div>
               <p className="text-gray-600 text-sm">Single point of contact for all services</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="mt-1 text-red-500">✓</div>
+              <div className="mt-1 text-pink-600">✓</div>
               <p className="text-gray-600 text-sm">Cost-effective bundled services</p>
             </div>
           </div>
           
           <div className="mt-4">
-            <a href="/video-audio-podcast" className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center">
+            <a href="/video-audio-podcast" className="text-pink-600  hover:text-red-800 text-sm font-medium flex items-center">
               Learn About Our Production Services
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -375,10 +375,10 @@ function MediaBuying() {
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Launch Your Media Campaign?</h2>
         <p className="text-gray-600 text-sm mb-4">Contact our media buying experts today to discuss your marketing goals and receive a customized strategy proposal.</p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <a href="/contact" className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
+          <a href="/contact" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
             Request a Strategy Call
           </a>
-          {/* <a href="/case-studies" className="bg-white border border-red-600 text-red-600 px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
+          {/* <a href="/case-studies" className="bg-white border border-red-600 text-pink-600  px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
             View Case Studies
           </a> */}
         </div>

@@ -39,27 +39,27 @@ function VideoAudioPodcast() {
         <h3 className="text-md font-medium text-gray-700 mb-3">Our Video Services Include:</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Monitor size={18} className="text-red-500" />
+            <Monitor size={18} className="text-pink-600" />
             <span>Corporate Videos & Promotional Content</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Film size={18} className="text-red-500" />
+            <Film size={18} className="text-pink-600" />
             <span>Brand Stories & Testimonials</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Video size={18} className="text-red-500" />
+            <Video size={18} className="text-pink-600" />
             <span>Social Media & Digital Marketing Videos</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Wifi size={18} className="text-red-500" />
+            <Wifi size={18} className="text-pink-600" />
             <span>Event Coverage & Live Streaming</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Layers size={18} className="text-red-500" />
+            <Layers size={18} className="text-pink-600" />
             <span>Product Demonstrations & Tutorials</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Edit size={18} className="text-red-500" />
+            <Edit size={18} className="text-pink-600" />
             <span>Full-Service Video Production</span>
           </div>
         </div>
@@ -77,27 +77,27 @@ function VideoAudioPodcast() {
         <h3 className="text-md font-medium text-gray-700 mb-3">Our Audio Services Include:</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Mic size={18} className="text-red-500" />
+            <Mic size={18} className="text-pink-600" />
             <span>Professional Voice-Over Recording</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Headphones size={18} className="text-red-500" />
+            <Headphones size={18} className="text-pink-600" />
             <span>Sound Design & Audio Mixing</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Music size={18} className="text-red-500" />
+            <Music size={18} className="text-pink-600" />
             <span>Music Production & Licensing</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Edit size={18} className="text-red-500" />
+            <Edit size={18} className="text-pink-600" />
             <span>Audio Editing & Enhancement</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Radio size={18} className="text-red-500" />
+            <Radio size={18} className="text-pink-600" />
             <span>Commercial Radio Spots</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <FileAudio size={18} className="text-red-500" />
+            <FileAudio size={18} className="text-pink-600" />
             <span>Audio Branding Elements</span>
           </div>
         </div>
@@ -115,27 +115,27 @@ function VideoAudioPodcast() {
         <h3 className="text-md font-medium text-gray-700 mb-3">Our Podcast Services Include:</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Layers size={18} className="text-red-500" />
+            <Layers size={18} className="text-pink-600" />
             <span>Podcast Series Development & Planning</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Mic size={18} className="text-red-500" />
+            <Mic size={18} className="text-pink-600" />
             <span>Professional Recording Sessions</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Headphones size={18} className="text-red-500" />
+            <Headphones size={18} className="text-pink-600" />
             <span>Editing, Mixing & Mastering</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Cover Art & Visual Assets Creation</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Wifi size={18} className="text-red-500" />
+            <Wifi size={18} className="text-pink-600" />
             <span>Distribution Strategy & Platform Setup</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <Headphones size={18} className="text-red-500" />
+            <Headphones size={18} className="text-pink-600" />
             <span>Ongoing Production Support</span>
           </div>
         </div>
@@ -180,7 +180,7 @@ function VideoAudioPodcast() {
           software to ensure the highest quality results for every project. Our rental services also 
           allow clients to access professional equipment for their own productions.
         </p>
-        <a href="/equipments" className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center">
+        <a href="/equipments" className="text-pink-600  hover:text-red-800 text-sm font-medium flex items-center">
           View Our Equipment
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -192,7 +192,7 @@ function VideoAudioPodcast() {
       <div className="w-full bg-red-50 p-6 rounded-lg shadow-sm mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Start Your Next Production?</h2>
         <p className="text-gray-600 text-sm mb-4">Contact our team today to discuss your project needs and receive a customized quote.</p>
-        <a href="/contact" className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium">
+        <a href="/contact" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium">
           Get In Touch
         </a>
       </div>

@@ -63,7 +63,7 @@ function ExpertPhotography() {
         <div className="absolute top-1/2 left-0 -translate-y-1/2 z-10">
           <button 
             onClick={() => scrollLeft(videoScrollRef)} 
-            className="bg-red-600 p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
+            className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
             aria-label="Scroll left"
           >
             <ChevronLeft size={24} className="text-white" />
@@ -72,7 +72,7 @@ function ExpertPhotography() {
         <div className="absolute top-1/2 right-0 -translate-y-1/2 z-10">
           <button 
             onClick={() => scrollRight(videoScrollRef)} 
-            className="bg-red-600 p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
+            className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
             aria-label="Scroll right"
           >
             <ChevronRight size={24} className="text-white" />
@@ -125,23 +125,23 @@ function ExpertPhotography() {
         <h3 className='text-md font-medium text-gray-700 mb-3'>Our Videography Include:</h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Video size={18} className="text-red-500" />
+            <Video size={18} className="text-pink-600" />
             <span>Corporate Events Video Coverage</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Wedding Video Coverage</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Monitor size={18} className="text-red-500" />
+            <Monitor size={18} className="text-pink-600" />
             <span>Documentary Production</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Wifi size={18} className="text-red-500" />
+            <Wifi size={18} className="text-pink-600" />
             <span>Livestreaming & Live Show Coverage</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Plane size={18} className="text-red-500" />
+            <Plane size={18} className="text-pink-600" />
             <span>Drone & Aerial Videography</span>
           </div>
         </div>
@@ -152,7 +152,7 @@ function ExpertPhotography() {
           <div className="absolute top-1/2 left-0 -translate-y-1/2 z-10">
             <button 
               onClick={() => scrollLeft(photoScrollRef)} 
-              className="bg-red-600 p-1 rounded-full shadow-md hover:bg-red-800 cursor-pointer"
+              className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-800 cursor-pointer"
               aria-label="Scroll left"
             >
               <ChevronLeft size={24} className="text-white" />
@@ -161,7 +161,7 @@ function ExpertPhotography() {
           <div className="absolute top-1/2 right-0 -translate-y-1/2 z-10 ">
             <button 
               onClick={() => scrollRight(photoScrollRef)} 
-              className="bg-red-600 p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
+              className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
               aria-label="Scroll right"
             >
               <ChevronRight size={24} className="text-white" />
@@ -208,23 +208,23 @@ function ExpertPhotography() {
         <h3 className='text-md font-medium text-gray-700 mb-3'>Our Photography Services Include:</h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Wedding Photography</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Corporate Headshots</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Product Photography</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Real Estate Photography</span>
           </div>
           <div className='flex items-center gap-2 text-gray-600 text-sm'>
-            <Camera size={18} className="text-red-500" />
+            <Camera size={18} className="text-pink-600" />
             <span>Event Photography</span>
           </div>
         </div>

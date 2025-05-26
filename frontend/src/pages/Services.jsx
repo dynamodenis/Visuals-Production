@@ -34,7 +34,7 @@ const Services = () => {
     <div className='container mx-auto px-6 py-16'>
       <AnimateSection>
         <div className='flex flex-col items-center py-10'>
-          <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Handshake className="mr-3 text-red-500" /><span>Services</span><Handshake className="ml-2 text-red-500" /></h2>
+          <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Handshake className="mr-3 text-pink-600" /><span>Services</span><Handshake className="ml-2 text-pink-600" /></h2>
           <div className='italic text-gray-600 text-center md:w-3xl'>
             <p>We are a full-service digital agency specializing in media buying strategies, creative content development, professional video production, and data-driven digital marketing strategies. 
             From concept to execution, we help brands tell their stories and connect with their audience.</p>
@@ -50,7 +50,7 @@ const Services = () => {
                 {services.map((service, index) => (
                   <li key={index} 
                     onClick={() => setSelectedService(service)}
-                    className={`cursor-pointer flex items-center text-sm ${selectedService.name === service.name ? 'text-red-500 font-semibold' : 'text-gray-600 hover:text-red-500'
+                    className={`cursor-pointer flex items-center text-sm ${selectedService.name === service.name ? 'text-pink-600 font-semibold' : 'text-gray-600 hover:text-pink-600'
                       }`
                     }
                   >
