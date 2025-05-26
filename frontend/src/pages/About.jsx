@@ -281,7 +281,10 @@ const About = () => {
         </motion.div>
 
         {/* Testimonials Section */}
-        <div className="mb-20">
+        <motion.div className="mb-20 mt-10 md:mt-20" initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}>
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-6 flex items-center justify-center gap-3">
               <Quote className="text-pink-600" />
@@ -315,10 +318,13 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Partners Section */}
-        <div className="text-center">
+        <motion.div className="text-center" initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}>
           <p className="text-gray-500 mb-8 font-medium">Trusted by industry leaders</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {partners.map((partner, index) => (
@@ -331,7 +337,7 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </AnimateSection>
     </div>
   )
