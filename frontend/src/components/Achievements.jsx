@@ -1,6 +1,8 @@
 import React from 'react'
 import { Medal, TrophyIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import achievements_background1 from '../assets/achievements_background1.jpg'
+import charles_award from '../assets/charles_award.jpeg'
+
 import { motion } from 'framer-motion';
 
 const fadeUpVariants = {
@@ -13,30 +15,31 @@ function Achievements() {
     {
       icon: "🎯", // You can replace with actual icons/SVGs
       label: "Projects",
-      value: "100"
+      value: "27"
     },
     {
       icon: "👥",
       label: "Clients",
-      value: "80"
+      value: "13"
     },
     {
       icon: "🌐",
-      label: "6000+ Sites",
-      value: "6000"
+      label: "Marketing Impressions",
+      value: "5.4 M"
     },
     {
       icon: "🎁",
-      label: "Gifts",
-      value: "76"
+      label: "Conversions",
+      value: "50.53K"
     }
   ];
 
   const achievementData = [
     {
       id: 1,
-      title: "Achievement Story 1",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+      title: "Tourism Reporting Award 2025 at AJEA",
+      description: "Charles Muthoni, our co-founder, director, and videographer, won the prestigious Tourism Reporting Award at the Annual Journalism Excellence Awards (AJEA) 2025 in Kenya. His creative storytelling and dedication to impactful visual journalism earned national recognition. This award is a proud milestone reflecting our team's commitment to excellence and innovation.",
+      image: charles_award
     },
     {
       id: 2,
@@ -143,11 +146,11 @@ function Achievements() {
                   <div
                     className="md:flex-row md:w-1/2 h-48 md:h-auto relative bg-cover bg-center"
                     style={{
-                      backgroundImage: `url(${achievements_background1})`
+                      backgroundImage: `url(${item.image ? item?.image : achievements_background1})`
                     }}
                   >
                     {/* Optional overlay to enhance readability or add style */}
-                    <div className="absolute inset-0 bg-black opacity-30 rounded-tl-lg rounded-bl-lg" />
+                    {/* <div className="absolute inset-0 bg-black opacity-30 rounded-tl-lg rounded-bl-lg" /> */}
                   </div>
 
 
