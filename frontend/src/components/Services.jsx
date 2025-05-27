@@ -1,6 +1,8 @@
 import React, {useRef} from 'react'
 import { Handshake } from 'lucide-react';
-import photography from '../assets/photography.jpg'
+import expert_videography from '../assets/expert_videography.jpg'
+import media_buying from '../assets/media_buying.png'
+import content_equipments from '../assets/content_equipments.png'
 import LandingServicePanel from './animations/LandingServicePanel';
 import { motion } from 'framer-motion';
 
@@ -42,7 +44,7 @@ function Services() {
                         title="Expert Photography & Videography"
                         text="We turn your vision into captivating digital stories through expert videography and photography. We blend creative storytelling with technical expertise to produce content that resonates.
 "
-                        image={photography}
+                        image={expert_videography}
                         delay={0}
                         index={1}
                     />
@@ -50,7 +52,7 @@ function Services() {
                         title="Media Buying Strategies"
                         text="Unlock the power of digital advertising with our expert media buying solutions, designed to maximize visibility and impact.
                                 From targeted ad campaigns to performance analytics, we craft winning media buying strategies that drive engagement and conversions."
-                        image={photography}
+                        image={media_buying}
                         delay={0.2}
                         index={2}
                     />
@@ -58,7 +60,7 @@ function Services() {
                         title="Content Creation Equipments Rental"
                         text="From DSLR cameras to studio lighting and sound equipment, we offer premium rentals for filmmakers, vloggers, and creatives looking to produce high-quality content.
 "
-                        image={photography}
+                        image={content_equipments}
                         delay={0.6}
                         index={3}
                     />
