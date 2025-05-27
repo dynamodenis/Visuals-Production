@@ -4,6 +4,8 @@ import { Eye, Rocket, Lightbulb, Heart, TrendingUp, Users, Award, Zap, Target, Q
 import tv47 from '../assets/tv47.jpeg'
 import black_samurai from '../assets/black_samurai.jpg'
 import { motion } from 'framer-motion';
+import govstack1 from '../assets/govstack1.jpeg'
+import govstack2 from '../assets/govstack2.jpeg'
 
 const About = () => {
   const values = [
@@ -245,7 +247,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 text-gray-600 rounded-2xl blur-xl"></div>
               <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                src={govstack1}
                 alt="Digital storytelling and creative process"
                 className="relative w-full h-auto rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
               />
@@ -272,7 +274,7 @@ const About = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-yellow-500/20 rounded-xl blur-lg"></div>
               <img
-                src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+                src={govstack2}
                 alt="Creative process and digital innovation"
                 className="relative w-full h-auto rounded-xl shadow-xl hover:scale-105 transition-transform duration-500"
               />
