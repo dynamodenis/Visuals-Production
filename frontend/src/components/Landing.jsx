@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { motion } from "framer-motion";
-
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   // Text to be animated
@@ -31,7 +31,6 @@ const Landing = () => {
   };
 
   // Variants for the list items
-  // Variants for the list items
   const listVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -59,10 +58,27 @@ const Landing = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <header className="h-screen bg-gradient-to-r from-red-900 to-black flex items-center">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col items-center justify-center h-full text-center">   
+      {/* Hero Section with Video Background */}
+      <header className="relative h-screen overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          poster="/photos/achievements_background1.jpg" // Optional: poster image while video loads
+        >
+          {/* <source src="/videos/compressed_prism_media.mp4" type="video/mp4" /> */}
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+        
+        {/* Content */}
+        <div className="relative z-20 container mx-auto px-6 h-full">
+          <div className="flex flex-col items-center justify-center h-full text-center text-white">   
             <motion.h2
               className="text-5xl font-bold mb-6"
               variants={containerVariants}
@@ -75,7 +91,7 @@ const Landing = () => {
                 </motion.span>
               ))}
             </motion.h2>
-            {/* <p className="text-xl mb-8">High-end production gear rental for your creative projects</p> */}
+            
             <motion.ul
               className='md:pl-10'
               variants={listVariants}
@@ -87,16 +103,24 @@ const Landing = () => {
                   key={index} 
                   variants={itemVariants}
                   className="flex items-center p-4"
-                  >
-                  <ChevronRight className="w-5 h-5 text-blue-500 mr-2" />
-                  <span>{item}</span>
+                >
+                  <ChevronRight className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
+                  <span className="text-left">{item}</span>
                 </motion.li>
               ))}
             </motion.ul>
-            <button className="bg-pink-600  hover:bg-red-700 px-8 py-3 rounded-lg font-semibold flex items-center">
-              Equipment Marketplace
+            
+            <motion.button 
+              className="bg-pink-600 hover:bg-pink-700 px-8 py-2 rounded-lg font-semibold flex items-center mt-8 transition-colors duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2.5, duration: 0.6 }}
+            >
+              <Link to="/services" className="flex items-center">
+                <span>Explore Services</span>
+              </Link>
               <ChevronRight className="ml-2" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </header>
