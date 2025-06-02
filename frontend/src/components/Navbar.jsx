@@ -26,7 +26,6 @@ const Navbar = () => {
                                 alt="Prism Media Logo"
                                 className="w-15 h-15 mr-2 object-cover rounded-full"
                             />
-                            {/* <img src="/photos/prism_logo.svg" alt="Prism Media Logo" className="w-15 h-15 mr-2 object-cover rounded-full" /> */}
                         </div>
 
                         <Link to="/" className="hover:text-gray-300">
