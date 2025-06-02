@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import LoadableImage from './animations/LoadableImage';
 import prism_logo from '../assets/prism_logo.svg'
 
 const title = "Prism Media";
@@ -20,7 +21,12 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="text-2xl font-bold flex flex-row items-center">
                         <div>
-                            <img src="/photos/prism_logo.svg" alt="Prism Media Logo" className="w-15 h-15 mr-2 object-cover rounded-full" />
+                            <LoadableImage
+                                src="/photos/prism_logo.svg"
+                                alt="Prism Media Logo"
+                                className="w-15 h-15 mr-2 object-cover rounded-full"
+                            />
+                            {/* <img src="/photos/prism_logo.svg" alt="Prism Media Logo" className="w-15 h-15 mr-2 object-cover rounded-full" /> */}
                         </div>
 
                         <Link to="/" className="hover:text-gray-300">
