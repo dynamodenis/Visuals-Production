@@ -31,7 +31,7 @@ const LoadableImage = ({ src, alt, className, ...props }) => {
             
             {/* Show loading placeholder while loading */}
             {loading && !error && (
-                <div className="animate-pulse bg-pink-200 w-15 h-15 mr-2 object-cover rounded-full"></div>
+                <div className="animate-pulse bg-gray-600 w-15 h-15 mr-2 object-cover rounded-full"></div>
             )}
             
             {/* Show error state if image fails to load */}
