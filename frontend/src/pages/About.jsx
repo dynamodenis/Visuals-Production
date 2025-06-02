@@ -113,11 +113,11 @@ const About = () => {
   const partners = [
     {
       name: "TV47",
-      logo: tv47,
+      logo: "/photos/tv47.jpeg",
     },
     {
       name: "Black Samurai",
-      logo: black_samurai,
+      logo: "/photos/black_samurai.jpg",
     },
 
   ];
@@ -247,7 +247,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 text-gray-600 rounded-2xl blur-xl"></div>
               <img
-                src={govstack1}
+                src="/photos/govstack1.jpeg"
                 alt="Digital storytelling and creative process"
                 className="relative w-full h-auto rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
               />
@@ -274,7 +274,7 @@ const About = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-yellow-500/20 rounded-xl blur-lg"></div>
               <img
-                src={govstack2}
+                src="/photos/govstack2.jpeg"
                 alt="Creative process and digital innovation"
                 className="relative w-full h-auto rounded-xl shadow-xl hover:scale-105 transition-transform duration-500"
               />

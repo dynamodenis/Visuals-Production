@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="text-2xl font-bold flex flex-row items-center">
                         <div>
-                            <img src={prism_logo} alt="Prism Media Logo" className="w-15 h-15 mr-2 object-cover rounded-full" />
+                            <img src="/photos/prism_logo.svg" alt="Prism Media Logo" className="w-15 h-15 mr-2 object-cover rounded-full" />
                         </div>
 
                         <Link to="/" className="hover:text-gray-300">

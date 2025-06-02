@@ -44,7 +44,7 @@ function Services() {
                         title="Expert Photography & Videography"
                         text="We turn your vision into captivating digital stories through expert videography and photography. We blend creative storytelling with technical expertise to produce content that resonates.
 "
-                        image={expert_videography}
+                        image="/photos/expert_videography.jpg"
                         delay={0}
                         index={1}
                     />
@@ -52,7 +52,7 @@ function Services() {
                         title="Media Buying Strategies"
                         text="Unlock the power of digital advertising with our expert media buying solutions, designed to maximize visibility and impact.
                                 From targeted ad campaigns to performance analytics, we craft winning media buying strategies that drive engagement and conversions."
-                        image={media_buying}
+                        image="/photos/media_buying.png"
                         delay={0.2}
                         index={2}
                     />
@@ -60,7 +60,7 @@ function Services() {
                         title="Content Creation Equipments Rental"
                         text="From DSLR cameras to studio lighting and sound equipment, we offer premium rentals for filmmakers, vloggers, and creatives looking to produce high-quality content.
 "
-                        image={content_equipments}
+                        image="/photos/content_equipments.png"
                         delay={0.6}
                         index={3}
                     />

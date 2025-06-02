@@ -14,11 +14,11 @@ function ExpertPhotography() {
 
   // Sample photos for the photography section
   const photos = [
-    {id: 1, src: events, title: "Wedding Portrait"},
-    {id: 2, src: photography, title: "Corporate Headshot"},
-    {id: 3, src: events, title: "Product Photography"},
-    {id: 4, src: photography, title: "Real Estate"},
-    {id: 5, src: events, title: "Event Photography"},
+    {id: 1, src: "/photos/events.jpg", title: "Wedding Portrait"},
+    {id: 2, src: "/photos/photography.jpg", title: "Corporate Headshot"},
+    {id: 3, src: "/photos/events.jpg", title: "Product Photography"},
+    {id: 4, src: "/photos/photography.jpg", title: "Real Estate"},
+    {id: 5, src: "/photos/events.jpg", title: "Event Photography"},
   ]
 
   const [activeVideo, setActiveVideo] = useState(videos_url[0])

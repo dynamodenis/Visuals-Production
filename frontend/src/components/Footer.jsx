@@ -13,7 +13,7 @@ function Footer() {
                     <div className="flex items-center gap-6">
                         {/* Logo */}
                         <div className="flex items-center gap-2 text-white">
-                            <img src={prism_logo} alt="Prism Media Logo" className="w-20 h-20 mr-2 object-cover" />
+                            <img src="/photos/prism_logo.jpg" alt="Prism Media Logo" className="w-20 h-20 mr-2 object-cover" />
                         </div>
 
                         {/* Social Icons */}

@@ -39,7 +39,7 @@ function Achievements() {
       id: 1,
       title: "Tourism Reporting Award 2025 at AJEA",
       description: "Charles Muthoni, our co-founder, director, and videographer, won the prestigious Tourism Reporting Award at the Annual Journalism Excellence Awards (AJEA) 2025 in Kenya. His creative storytelling and dedication to impactful visual journalism earned national recognition. This award is a proud milestone reflecting our team's commitment to excellence and innovation.",
-      image: charles_award
+      image: "/photos/charles_award.jpeg"
     },
     // {
     //   id: 2,
