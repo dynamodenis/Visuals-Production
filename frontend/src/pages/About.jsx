@@ -1,11 +1,7 @@
 import React from 'react'
 import AnimateSection from '../components/AnimateSection';
 import { Eye, Rocket, Lightbulb, Heart, TrendingUp, Users, Award, Zap, Target, Quote, Star } from 'lucide-react';
-import tv47 from '../assets/tv47.jpeg'
-import black_samurai from '../assets/black_samurai.jpg'
 import { motion } from 'framer-motion';
-import govstack1 from '../assets/govstack1.jpeg'
-import govstack2 from '../assets/govstack2.jpeg'
 
 const About = () => {
   const values = [

@@ -1,15 +1,13 @@
 import { create } from 'zustand';
-import photography from '../assets/photography.jpg'
-import gopro from '../assets/gopro.jpg'
 
-import a7_iv from '../assets/sony_a7_iv.webp';
-import sigma_35mm_14 from '../assets/sigma_35mm_14.jpg'
-import dji_mic_mini from '../assets/dji_mic_mini.webp'
-import dji_mic_m2 from '../assets/dji_mic_m2.webp'
-import rs4_pro from '../assets/rs4_pro.webp'
-import amaran_300c from '../assets/amaram_300c.jpg'
-import softbox from '../assets/softbox.jpg'
-import insta360 from '../assets/insta360.webp'
+// import a7_iv from '../assets/sony_a7_iv.webp';
+// import sigma_35mm_14 from '../assets/sigma_35mm_14.jpg'
+// import dji_mic_mini from '../assets/dji_mic_mini.webp'
+// import dji_mic_m2 from '../assets/dji_mic_m2.webp'
+// import rs4_pro from '../assets/rs4_pro.webp'
+// import amaran_300c from '../assets/amaram_300c.jpg'
+// import softbox from '../assets/softbox.jpg'
+// import insta360 from '../assets/insta360.webp'
 
 
 type Equipement = {
@@ -39,49 +37,49 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           title: "Sony a7 IV",
           category: ["Camera"],
           price: 3000,
-          image: a7_iv
+          image: '/photos/sony_a7_iv.webp'
         },
         {
           title: "Sigma 35mm f/1.4",
           category: ["Lens", "Camera"],
           price: 3000,
-          image: sigma_35mm_14
+          image: '/photos/sigma_35mm_14.jpg'
         },
         {
           title: "DJI Mic Mini Wireless Microphone",
           category: ["Audio"],
           price: 1000,
-          image: dji_mic_mini
+          image: '/photos/dji_mic_mini.webp'
         },
         {
           title: "DJI Mic M2 Wireless Microphone",
           category: ["Audio"],
           price: 1000,
-          image: dji_mic_m2
+          image: '/photos/dji_mic_m2.webp'
         },
         {
           title: "RS4 Pro Gimbal",
           category: ["Stabilizer", "Camera"],
           price: 2000,
-          image: rs4_pro
+          image: '/photos/rs4_pro.webp'
         },
         {
           title: "Aputure Amaran 300C RGB LED Light",
           category: ["Lighting"],
           price: 1000,
-          image: amaran_300c
+          image: '/photos/amaram_300c.jpg'
         },
         {
           title: "Softbox with Grid (85cm)",
           category: ["Lighting"],
           price: 500,
-          image: softbox
+          image: '/photos/softbox.jpg'
         },
         {
           title: "Insta360 X4 Action Camera",
           category: ["Camera"],
           price: 1000,
-          image: insta360
+          image: '/photos/insta360.webp'
         }
       ];
       console.log('Fetched equipements:', data);

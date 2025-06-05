@@ -1,8 +1,5 @@
 import React, {useRef} from 'react'
 import { Handshake } from 'lucide-react';
-import expert_videography from '../assets/expert_videography.jpg'
-import media_buying from '../assets/media_buying.png'
-import content_equipments from '../assets/content_equipments.png'
 import LandingServicePanel from './animations/LandingServicePanel';
 import { motion } from 'framer-motion';
 

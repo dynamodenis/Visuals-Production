@@ -1,6 +1,4 @@
 import React, { useState, useRef } from 'react'
-import events from '../../assets/events.jpg'
-import photography from '../../assets/photography.jpg'
 
 import { Camera, Video, Monitor, Wifi, Plane, ChevronLeft, ChevronRight } from 'lucide-react'
 

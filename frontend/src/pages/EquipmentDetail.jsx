@@ -1,6 +1,5 @@
 import React from 'react';
 import { Share, Heart, ShoppingCart, Video, Mic } from 'lucide-react';
-import photography from '../assets/photography.jpg'
 
 const EquipmentDetail = () => {
     const product = {
@@ -28,7 +27,7 @@ const EquipmentDetail = () => {
             <div className="flex flex-col md:flex-row w-full gap-4 md:gap-10">
                 <div className="rounded-lg md:w-1/2">
                     <img
-                        src={photography}
+                        src='/photos/photography.jpg'
                         alt="GoPro HERO11"
                         className="w-full h-auto"
                     />

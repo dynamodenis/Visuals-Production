@@ -1,5 +1,4 @@
 import React from 'react'
-import prism_logo from '../assets/prism_logo.jpg'
 import { Link } from 'react-router-dom';
 
 function Footer() {

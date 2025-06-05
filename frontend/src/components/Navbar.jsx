@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import LoadableImage from './animations/LoadableImage';
-import prism_logo from '../assets/prism_logo.svg'
 
 const title = "Prism Media";
 

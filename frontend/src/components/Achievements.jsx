@@ -1,7 +1,5 @@
 import React from 'react'
 import { Medal, TrophyIcon, ChevronLeft, ChevronRight } from 'lucide-react';
-import achievements_background1 from '../assets/achievements_background1.jpg'
-import charles_award from '../assets/charles_award.jpeg'
 
 import { motion } from 'framer-motion';
 
@@ -59,7 +57,7 @@ function Achievements() {
       <div
         className="absolute inset-0 w-full h-full z-0"
         style={{
-          backgroundImage: `url(${achievements_background1})`,
+          backgroundImage: `url(/photos/achievements_background1.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.9
@@ -120,9 +118,9 @@ function Achievements() {
               >
                 <div className="flex flex-col md:flex-row">
                   {/* Image Section */}
-                  <div className="w-full md:w-1/2 h-64 md:h-80 lg:h-96 relative overflow-hidden">
+                  <div className="w-full md:w-1/2  relative overflow-hidden">
                     <img
-                      src={item.image ? item.image : achievements_background1}
+                      src={item.image ? item.image : "/photos/achievements_background1.jpg"}
                       alt={item.title}
                       className="w-full h-full object-contain md:object-cover object-center bg-gray-100"
                     />
