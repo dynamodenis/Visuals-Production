@@ -19,7 +19,7 @@ const EquipmentDetail = () => {
     };
 
     return (
-        <div className="container mx-auto px-6 pt-8 md:py-16 max-w-6xl">
+        <div className="container mx-auto px-6 pt-8 md:py-16 max-w-6xl bg-white">
             <div className='flex flex-col items-center pt-10 md:py-10'>
                 <h2 className="text-3xl font-medium font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-400" /><span>{product.name} </span><Mic className="ml-2 text-red-400" /></h2>
             </div>

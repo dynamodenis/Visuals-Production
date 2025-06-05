@@ -4,7 +4,7 @@ import AnimateSection from '../components/AnimateSection';
 
 const Contact = () => {
   return (
-    <div className='container mx-auto px-4 py-16 md:w-5xl'>
+    <div className='container mx-auto px-4 py-16 md:w-5xl bg-white'>
       <AnimateSection>
         <div className='flex flex-col items-center py-10'>
           <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Phone className="mr-3 text-pink-600" /><span>Contact Us </span><Mail className="ml-2 text-pink-600" /></h2>
@@ -35,7 +35,8 @@ const Contact = () => {
                 <div>
                   <h3 className="text-lg text-gray-600 font-semibold mb-2">Telephone number</h3>
                   <p className="text-gray-600">(+254) 0768173480</p>
-                  <p className="text-gray-600">(+254) 0737055737</p>
+                  <p className="text-gray-600">(+254) 0704851232</p>
+                  <p className="text-gray-600">(+254) 0740863889</p>
                 </div>
               </div>
             </div>

@@ -135,7 +135,7 @@ const Equipments = () => {
     };
 
     return (
-        <div className='container mx-auto px-6 py-16'>
+        <div className='container mx-auto px-6 py-16 bg-white'>
             <AnimateSection>
                 <div className='flex flex-col items-center py-10'>
                     <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900">
