@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import Equipments from './pages/Equipments';
 import EquipmentDetail from './pages/EquipmentDetail';
 import AnimateSection from './components/AnimateSection';
-import { ScrollToTop } from './components/animations/ScrollToTop';
+import ScrollToTop from './components/animations/ScrollToTop';
 
 function App() {
   const [count, setCount] = useState(0)
