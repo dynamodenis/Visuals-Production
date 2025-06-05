@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Equipments from './pages/Equipments';
 import EquipmentDetail from './pages/EquipmentDetail';
 import AnimateSection from './components/AnimateSection';
+import { ScrollToTop } from './components/animations/ScrollToTop';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop /> {/* Scroll to top on route change */}
         <Navbar /> {/* Include Navbar at the top */}
         <Routes>
           <Route path="/" element={<Home />} />
