@@ -133,7 +133,7 @@ const About = () => {
 
   return (
     <div className='container mx-auto px-4 py-16 md:w-5xl bg-white'>
-      <AnimateSection>
+      {/* <AnimateSection> */}
         <motion.div className='flex flex-col items-center py-10' initial={{ scale: 0.8 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -336,7 +336,7 @@ const About = () => {
             ))}
           </div>
         </motion.div>
-      </AnimateSection>
+      {/* </AnimateSection> */}
     </div>
   )
 }

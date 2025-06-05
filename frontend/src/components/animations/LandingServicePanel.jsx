@@ -8,7 +8,7 @@ function LandingServicePanel({ title, text, image, delay = 0, index }) {
 
     const fadeUpVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
   };
 
     const isOddIndex = index % 2 === 1;
