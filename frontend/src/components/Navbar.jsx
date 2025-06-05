@@ -25,6 +25,7 @@ const Navbar = () => {
                                 src="/photos/prism_logo.svg"
                                 alt="Prism Media Logo"
                                 className="w-15 h-15 mr-2 object-cover rounded-full"
+                                loaderClassName="w-15 h-15 mr-2 rounded-full"
                             />
                         </div>
 

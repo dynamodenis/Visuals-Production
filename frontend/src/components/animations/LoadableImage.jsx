@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-const LoadableImage = ({ src, alt, className, ...props }) => {
+const LoadableImage = ({ src, alt, className, loaderClassName, ...props }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -31,7 +31,7 @@ const LoadableImage = ({ src, alt, className, ...props }) => {
             
             {/* Show loading placeholder while loading */}
             {loading && !error && (
-                <div className="animate-pulse bg-gray-600 w-15 h-15 mr-2 object-cover rounded-full"></div>
+                <div className={`animate-pulse bg-gray-600 ${loaderClassName}`}></div>
             )}
             
             {/* Show error state if image fails to load */}

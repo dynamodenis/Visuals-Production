@@ -41,31 +41,7 @@ function Achievements() {
       description: "Charles Muthoni, our co-founder, director, and videographer, won the prestigious Tourism Reporting Award at the Annual Journalism Excellence Awards (AJEA) 2025 in Kenya. His creative storytelling and dedication to impactful visual journalism earned national recognition. This award is a proud milestone reflecting our team's commitment to excellence and innovation.",
       image: "/photos/charles_award.jpeg"
     },
-    // {
-    //   id: 2,
-    //   title: "Achievement Story 2",
-    //   description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-    // },
-    // {
-    //   id: 3,
-    //   title: "Achievement Story 3",
-    //   description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-    // },
-    // {
-    //   id: 4,
-    //   title: "Achievement Story 4",
-    //   description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-    // },
-    // {
-    //   id: 5,
-    //   title: "Achievement Story 5",
-    //   description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-    // },
-    // {
-    //   id: 6,
-    //   title: "Achievement Story 6",
-    //   description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-    // }
+    
   ];
 
   const scrollLeft = () => {
@@ -79,7 +55,7 @@ function Achievements() {
   };
 
   return (
-    <div className='py-12 relative shadow-md h-screen'>
+    <div className='py-12 relative shadow-md min-h-screen'>
       <div
         className="absolute inset-0 w-full h-full z-0"
         style={{
@@ -92,7 +68,7 @@ function Achievements() {
 
       <div className="relative z-20 container mx-auto px-4 text-center h-full flex flex-col">
         {/* Top 60% - Achievement Stories */}
-        <div className="flex-grow" style={{ height: '60%' }}>
+        <div className="flex-grow mb-8">
           <motion.h2
             className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-white"
             variants={fadeUpVariants}
@@ -101,7 +77,6 @@ function Achievements() {
             viewport={{ amount: 0.2 }}
           ><Medal className="mr-3 text-pink-600" /><span>Achievements </span><TrophyIcon className="ml-2 text-pink-600" /></motion.h2>
 
-          {/* Achievements cards */}
           {/* Scroll Buttons */}
           <motion.button
             onClick={scrollLeft}
@@ -109,7 +84,7 @@ function Achievements() {
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
           </motion.button>
@@ -120,12 +95,14 @@ function Achievements() {
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
           >
             <ChevronRight className="w-6 h-6 text-white" />
           </motion.button>
 
-          <motion.div className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4 h-full" id="achievement-container"
+          <motion.div 
+            className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4" 
+            id="achievement-container"
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
@@ -133,32 +110,28 @@ function Achievements() {
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none'
-            }}>
+            }}
+          >
             {/* Achievement story cards */}
             {achievementData.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden flex-none w-96 md:w-1/2 h-full flex flex-col justify-between dark_blue_bg opacity-80"
-
+                className="bg-white rounded-lg shadow-lg overflow-hidden flex-none w-80 md:w-96 lg:w-1/2"
               >
-                <div className="flex flex-col md:flex-row h-full">
+                <div className="flex flex-col md:flex-row">
                   {/* Image Section */}
-                  <div
-                    className="md:flex-row md:w-1/2 h-48 md:h-auto relative bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url(${item.image ? item?.image : achievements_background1})`
-                    }}
-                  >
-                    {/* Optional overlay to enhance readability or add style */}
-                    {/* <div className="absolute inset-0 bg-black opacity-30 rounded-tl-lg rounded-bl-lg" /> */}
+                  <div className="w-full md:w-1/2 h-64 md:h-80 lg:h-96 relative overflow-hidden">
+                    <img
+                      src={item.image ? item.image : achievements_background1}
+                      alt={item.title}
+                      className="w-full h-full object-contain md:object-cover object-center bg-gray-100"
+                    />
                   </div>
-
-
+                  
                   {/* Content Section */}
-                  <div className="md:w-1/2 p-6 dark_blue_bg text-white flex flex-col justify-center text-left">
-                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-sm mb-4 opacity-90">{item.description}</p>
-
+                  <div className="w-full md:w-1/2 p-6 dark_blue_bg text-white flex flex-col justify-center text-left opacity-90">
+                    <h3 className="text-lg md:text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-sm mb-4 opacity-90 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -167,10 +140,13 @@ function Achievements() {
         </div>
 
         {/* Bottom 40% - Stats Cards */}
-        <motion.div className="mt-14 md:mt-20" variants={fadeUpVariants}
+        <motion.div 
+          className="mt-8" 
+          variants={fadeUpVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.2 }} style={{ height: '40%' }}>
+          viewport={{ amount: 0.2 }}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {statsData.map((stat, index) => (
               <div
