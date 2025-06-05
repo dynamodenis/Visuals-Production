@@ -31,7 +31,7 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(services[0]);
 
   return (
-    <div className='container mx-auto px-6 py-16'>
+    <div className='container mx-auto px-6 py-16 bg-white'>
       <AnimateSection>
         <div className='flex flex-col items-center py-10'>
           <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Handshake className="mr-3 text-pink-600 animate-bounce"/><span>Services</span><Handshake className="ml-2 text-pink-600 animate-bounce" /></h2>

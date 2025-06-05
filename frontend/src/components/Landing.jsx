@@ -80,7 +80,7 @@ const Landing = () => {
         <div className="relative z-20 container mx-auto px-6 h-full">
           <div className="flex flex-col items-center justify-center h-full text-center text-white">   
             <motion.h2
-              className="text-5xl font-bold mb-6"
+              className="text-5xl font-bold mb-4 mt-4 md:mb-6"
               variants={containerVariants}
               initial="hidden"
               animate="visible"

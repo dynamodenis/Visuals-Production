@@ -34,7 +34,7 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col min-h-screen text-white ">
+    <div className="flex flex-col min-h-screen text-white bg-white">
       {/* Landing takes up the first full viewport */}
       <section className="h-screen">
         <Landing />
