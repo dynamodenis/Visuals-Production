@@ -86,7 +86,7 @@ const Equipment = () => {
                         }}
                     >
                         {localEquipements?.map((product, index) => (
-                            <EquipmentCard key={index} product={product} />
+                            <EquipmentCard index={index} product={product} />
                         ))}
                     </motion.div>
                 </div>

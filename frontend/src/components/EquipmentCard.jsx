@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function EquipmentCard(props) {
 
     const { product, index } = props
-
+    
     const navigate = useNavigate();
 
     const handleClick = () => {

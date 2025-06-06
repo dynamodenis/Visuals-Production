@@ -1,34 +1,49 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Share, Heart, ShoppingCart, Video, Mic } from 'lucide-react';
+import { useParams } from 'react-router-dom';
 
 const EquipmentDetail = () => {
-    const product = {
-        name: 'GoPro HERO11',
-        price: 2500.00,
-        currency: 'KSh',
-        categories: ['Cameras', 'GoPro'],
-        features: [
-            '27MP with Improved Performance',
-            '5.3K60/2.7K240 Video, 27MP Photos',
-            'HyperSmooth 5.0 Image Stabilization',
-            'Front & Rear LCD Screens',
-            'Wi-Fi & Bluetooth Connectivity',
-            '33\' Waterproof without Housing',
-            '8x Slow-Motion Video'
-        ]
-    };
+    const { id } = useParams();
+
+    const [product, setProduct] = useState({})
+    useEffect(() => {
+            const stored = localStorage.getItem('equipements');
+            if (stored) {
+                const equipements = JSON.parse(stored);
+                const item = equipements[id]
+                if (item){
+                    setProduct(item)
+                }
+            }
+        }, [id]);
+
+    // const product = {
+    //     name: 'GoPro HERO11',
+    //     price: 2500.00,
+    //     currency: 'KSh',
+    //     categories: ['Cameras', 'GoPro'],
+    //     features: [
+    //         '27MP with Improved Performance',
+    //         '5.3K60/2.7K240 Video, 27MP Photos',
+    //         'HyperSmooth 5.0 Image Stabilization',
+    //         'Front & Rear LCD Screens',
+    //         'Wi-Fi & Bluetooth Connectivity',
+    //         '33\' Waterproof without Housing',
+    //         '8x Slow-Motion Video'
+    //     ]
+    // };
 
     return (
         <div className="container mx-auto px-6 pt-8 md:py-16 max-w-6xl bg-white">
             <div className='flex flex-col items-center pt-10 md:py-10'>
-                <h2 className="text-3xl font-medium font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-400" /><span>{product.name} </span><Mic className="ml-2 text-red-400" /></h2>
+                <h2 className="text-3xl font-medium font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-400 animate-bounce" /><span>{product?.title} </span><Mic className="ml-2 text-red-400 animate-bounce" /></h2>
             </div>
             {/* Product Image */}
             <div className="flex flex-col md:flex-row w-full gap-4 md:gap-10">
                 <div className="rounded-lg md:w-1/2">
                     <img
-                        src='/photos/photography.jpg'
-                        alt="GoPro HERO11"
+                        src={product?.image}
+                        alt={product?.title}
                         className="w-full h-auto"
                     />
                 </div>
@@ -38,9 +53,14 @@ const EquipmentDetail = () => {
                         <div className="text-xl font-bold text-red-400">{product.name}</div>
 
                         <div className="mb-2">
-                            <span className="text-md text-green-600 font-semibold font-small">
-                                {product.currency}{product.price.toLocaleString()}
-                            </span>
+                            {product?.price != null ? (
+                                <span className="text-md text-green-600 font-semibold font-small">
+                                    {product.currency}{product.price.toLocaleString()}
+                                </span>
+                            ) : (
+                                <span className="text-gray-400">Price not available</span>
+                            )}
+
                         </div>
                     </div>
 
@@ -63,10 +83,10 @@ const EquipmentDetail = () => {
                     {/* Categories */}
                     <div className="mb-2 text-sm">
                         <span className="text-gray-600">Categories: </span>
-                        {product.categories.map((category, index) => (
+                        {product?.categories?.map((category, index) => (
                             <span key={category}>
                                 <a href="#" className="text-blue-500 hover:underline">{category}</a>
-                                {index < product.categories.length - 1 && ', '}
+                                {index < product?.categories.length - 1 && ', '}
                             </span>
                         ))}
                     </div>
@@ -92,7 +112,7 @@ const EquipmentDetail = () => {
                     <div className='flex flex-col items-start justify-start font-small text-sm md:w-1/2'>
                         <div className="font-semibold mb-2 text-gray-400 ">Key Features</div>
                         <ul className="list-disc pl-4 ml-8">
-                            {product.features.map((feature) => (
+                            {product?.features?.map((feature) => (
                                 <li key={feature} className="text-gray-400">{feature}</li>
                             ))}
                         </ul>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Camera, Video, Mic, Laptop, Search, ChevronRight } from 'lucide-react';
-import { useEquipementStore } from '../zustand/store';
 import EquipmentCard from '../components/EquipmentCard';
 import AnimateSection from '../components/AnimateSection';
 
@@ -198,7 +197,7 @@ const Equipments = () => {
                     <div className="grid md:grid-cols-3 col-span-3 justify-center items-center pb-4 gap-4">
                         {filteredEquipements?.length > 0 ? (
                             filteredEquipements.map((product, index) => (
-                                <EquipmentCard key={index} product={product} />
+                                <EquipmentCard index={index} product={product} />
                             ))
                         ) : (
                             <div className="col-span-3 text-center py-8">
