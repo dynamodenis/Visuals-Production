@@ -1,17 +1,5 @@
 import React from 'react'
-import { 
-  Camera, 
-  Video, 
-  Mic, Headphones, 
-  Monitor, 
-  Settings, 
-  Film, 
-  Smartphone, 
-  Radio, 
-  Sliders, 
-  Truck,
-  Clock,
-} from 'lucide-react'
+import { Link } from 'react-router-dom';
 
 function EquipmentRental() {
   return (
@@ -26,12 +14,12 @@ function EquipmentRental() {
         </p>
         
         <div className="flex justify-center my-6">
-          <a 
-            href="/equipments" 
+          <Link
+            to="/equipments"
             className="bg-pink-600  text-white px-6 py-3 rounded-md hover:bg-red-700 inline-block text-md font-medium text-center"
           >
             View All Equipment
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -227,12 +215,12 @@ function EquipmentRental() {
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Rent Professional Equipment?</h2>
         <p className="text-gray-600 text-sm mb-4">Browse our complete inventory and book your equipment today for your next production.</p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <a href="/equipments" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
+          <Link to="/equipments" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
             Browse Equipment Catalog
-          </a>
-          <a href="/contact" className="bg-white border border-red-600 text-pink-600  px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
+          </Link>
+          <Link to="/contact" className="bg-white border border-red-600 text-pink-600  px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
             Contact Rental Department
-          </a>
+          </Link>
         </div>
       </div>
     </div>
