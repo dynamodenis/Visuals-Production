@@ -48,7 +48,7 @@ const EquipmentDetail = () => {
                     <img
                         src={product?.image}
                         alt={product?.title}
-                        className="w-full h-auto"
+                        className="w-3/4 h-auto"
                     />
                 </div>
 
@@ -88,7 +88,7 @@ const EquipmentDetail = () => {
                     <div className="mb-2 text-sm">
                         <span className="text-gray-600">Categories: </span>
                         {product?.category?.map((cat, index) => (
-                            <span key={cat}>
+                            <span key={index}>
                                 <a href="#" className="text-blue-500 hover:underline">{cat}</a>
                                 {index < product?.category.length - 1 && ', '}
                             </span>
@@ -116,8 +116,8 @@ const EquipmentDetail = () => {
                     <div className='flex flex-col items-start justify-start font-small text-sm md:w-1/2'>
                         <div className="font-semibold mb-2 text-gray-400 ">Key Features</div>
                         <ul className="list-disc pl-4 ml-8">
-                            {product?.features?.map((feature) => (
-                                <li key={feature} className="text-gray-400">{feature}</li>
+                            {product?.features?.map((feature, index) => (
+                                <li key={index} className="text-gray-400">{feature}</li>
                             ))}
                         </ul>
                     </div>
@@ -171,7 +171,7 @@ const EquipmentDetail = () => {
                         }}
                     >
                         {relatedProducts?.map((product, index) => (
-                            <EquipmentCard index={index} product={product} />
+                            <EquipmentCard key={index} index={index} product={product} />
                         ))}
                     </motion.div>
                 </div>

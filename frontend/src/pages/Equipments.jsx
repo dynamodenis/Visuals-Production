@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Camera, Video, Mic, Laptop, Search, ChevronRight } from 'lucide-react';
 import EquipmentCard from '../components/EquipmentCard';
 import AnimateSection from '../components/AnimateSection';
+import { useEquipementStore } from '../zustand/store';
+
 
 const Equipments = () => {
+    const { equipements } = useEquipementStore();
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -39,12 +42,8 @@ const Equipments = () => {
     const [filteredEquipements, setFilteredEquipements] = useState([]); // Store filtered data
 
     useEffect(() => {
-        const stored = localStorage.getItem('equipements');
-        if (stored) {
-            const equipements = JSON.parse(stored);
-            setAllEquipements(equipements);
-            setFilteredEquipements(equipements);
-        }
+        setAllEquipements(equipements);
+        setFilteredEquipements(equipements);
     }, []);
 
     // Filter by category
@@ -197,7 +196,7 @@ const Equipments = () => {
                     <div className="grid md:grid-cols-3 col-span-3 justify-center items-center pb-4 gap-4">
                         {filteredEquipements?.length > 0 ? (
                             filteredEquipements.map((product, index) => (
-                                <EquipmentCard index={index} product={product} />
+                                <EquipmentCard key={index} index={index} product={product} />
                             ))
                         ) : (
                             <div className="col-span-3 text-center py-8">

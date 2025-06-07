@@ -16,20 +16,11 @@ const fadeUpVariants = {
 };
 
 const Home = () => {
-  const { getEquipements, equipements } = useEquipementStore();
+  const { getEquipements } = useEquipementStore();
 
 
   useEffect(() => {
-    // Fetch equipment data and then store in localStorage
-    const fetchAndStoreEquipements = async () => {
-      await getEquipements(); // Assumes this populates the store asynchronously
-      const updatedEquipements = useEquipementStore.getState().equipements;
-      if (updatedEquipements) {
-        localStorage.setItem('equipements', JSON.stringify(updatedEquipements));
-      }
-    };
-
-    fetchAndStoreEquipements();
+    getEquipements()
   }, []);
 
 

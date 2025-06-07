@@ -11,14 +11,6 @@ const fadeUpVariants = {
 
 const Equipment = () => {
     const { equipements } = useEquipementStore();
-    const [localEquipements, setLocalEquipements] = useState([]);
-
-    useEffect(() => {
-        const stored = localStorage.getItem('equipements');
-        if (stored) {
-            setLocalEquipements(JSON.parse(stored));
-        }
-    }, []);
 
     const scrollLeft = () => {
         const container = document.getElementById('equipment-container');
@@ -85,8 +77,8 @@ const Equipment = () => {
                             msOverflowStyle: 'none'
                         }}
                     >
-                        {localEquipements?.map((product, index) => (
-                            <EquipmentCard index={index} product={product} />
+                        {equipements?.map((product, index) => (
+                            <EquipmentCard key={index} index={index} product={product} />
                         ))}
                     </motion.div>
                 </div>
