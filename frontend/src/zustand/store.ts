@@ -28,6 +28,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Camera"],
           price: 3000,
           currency: "KSH",
+          quantity: 1,
           image: '/photos/sony_a7_iv.webp'
         },
         {
@@ -35,7 +36,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Lens", "Camera"],
           price: 3000,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/sigma_35mm_14.jpg'
         },
         {
@@ -43,7 +44,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Audio"],
           price: 1000,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/dji_mic_mini.webp'
         },
         {
@@ -51,7 +52,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Audio"],
           price: 1000,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/dji_mic_m2.webp'
         },
         {
@@ -59,7 +60,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Stabilizer", "Camera"],
           price: 2000,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/rs4_pro.webp'
         },
         {
@@ -67,7 +68,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Lighting"],
           price: 1000,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/amaram_300c.jpg'
         },
         {
@@ -75,7 +76,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Lighting"],
           price: 500,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/softbox.jpg'
         },
         {
@@ -83,7 +84,7 @@ export const useEquipementStore = create<EquipementStore>((set) => ({
           category: ["Camera"],
           price: 1000,
           currency: "KSH",
-
+          quantity: 1,
           image: '/photos/insta360.webp'
         }
       ];

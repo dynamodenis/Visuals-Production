@@ -1,11 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import { Share, Heart, ShoppingCart, Video, Mic } from 'lucide-react';
+import { Share, Heart, ShoppingCart, Video, Mic, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useParams } from 'react-router-dom';
+import EquipmentCard from '../components/EquipmentCard';
+import { motion } from 'framer-motion';
+
+const fadeUpVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+};
 
 const EquipmentDetail = () => {
     const { id } = useParams();
 
     const [product, setProduct] = useState({})
+    const [relatedProducts, setRelatedProducts] = useState([]);
     useEffect(() => {
             const stored = localStorage.getItem('equipements');
             if (stored) {
@@ -13,28 +21,24 @@ const EquipmentDetail = () => {
                 const item = equipements[id]
                 if (item){
                     setProduct(item)
+                    const related = equipements.filter((equip) => equip.category.some(cat => item.category.includes(cat)));
+                    setRelatedProducts(related); // Exclude current product and limit to 5
                 }
             }
         }, [id]);
 
-    // const product = {
-    //     name: 'GoPro HERO11',
-    //     price: 2500.00,
-    //     currency: 'KSh',
-    //     categories: ['Cameras', 'GoPro'],
-    //     features: [
-    //         '27MP with Improved Performance',
-    //         '5.3K60/2.7K240 Video, 27MP Photos',
-    //         'HyperSmooth 5.0 Image Stabilization',
-    //         'Front & Rear LCD Screens',
-    //         'Wi-Fi & Bluetooth Connectivity',
-    //         '33\' Waterproof without Housing',
-    //         '8x Slow-Motion Video'
-    //     ]
-    // };
+    const scrollLeft = () => {
+        const container = document.getElementById('equipment-container');
+        container.scrollLeft -= 300;
+    };
+
+    const scrollRight = () => {
+        const container = document.getElementById('equipment-container');
+        container.scrollLeft += 300;
+    };
 
     return (
-        <div className="container mx-auto px-6 pt-8 md:py-16 max-w-6xl bg-white">
+        <div className="container mx-auto px-6 pt-8 mt-12 md:mt-5 md:py-16 bg-white max-w-sreen">
             <div className='flex flex-col items-center pt-10 md:py-10'>
                 <h2 className="text-3xl font-medium font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-400 animate-bounce" /><span>{product?.title} </span><Mic className="ml-2 text-red-400 animate-bounce" /></h2>
             </div>
@@ -50,12 +54,12 @@ const EquipmentDetail = () => {
 
                 <div>
                     <div className="flex flex-col items-start">
-                        <div className="text-xl font-bold text-red-400">{product.name}</div>
+                        <div className="text-xl font-bold text-red-400">{product?.title}</div>
 
                         <div className="mb-2">
                             {product?.price != null ? (
                                 <span className="text-md text-green-600 font-semibold font-small">
-                                    {product.currency}{product.price.toLocaleString()}
+                                    {product?.currency} {product.price.toLocaleString()}
                                 </span>
                             ) : (
                                 <span className="text-gray-400">Price not available</span>
@@ -69,9 +73,9 @@ const EquipmentDetail = () => {
                         <div className="flex border rounded">
                             <input
                                 type="number"
-                                className="border rounded border-gray-300  focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-transparent w-10"
+                                className="border rounded border-gray-300 text-gray-600  focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-transparent w-10 px-1"
                                 min="1"
-                                defaultValue="1"
+                                defaultValue={product?.quantity || 1}
                             />
                         </div>
                         <button className="bg-green-500 text-sm  text-white px-2 py-2 rounded flex items-center gap-2 hover:bg-green-600">
@@ -83,10 +87,10 @@ const EquipmentDetail = () => {
                     {/* Categories */}
                     <div className="mb-2 text-sm">
                         <span className="text-gray-600">Categories: </span>
-                        {product?.categories?.map((category, index) => (
-                            <span key={category}>
-                                <a href="#" className="text-blue-500 hover:underline">{category}</a>
-                                {index < product?.categories.length - 1 && ', '}
+                        {product?.category?.map((cat, index) => (
+                            <span key={cat}>
+                                <a href="#" className="text-blue-500 hover:underline">{cat}</a>
+                                {index < product?.category.length - 1 && ', '}
                             </span>
                         ))}
                     </div>
@@ -123,7 +127,54 @@ const EquipmentDetail = () => {
 
             <div className='flex flex-col items-start md:py-10'>
                 <div className="text-xl font-semibold mb-4 text-gray-600">Related Products</div>
+                <div className="relative">
+                    {/* Scroll Buttons */}
+                    { relatedProducts.length > 0 && <motion.button
+                        onClick={scrollLeft}
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ amount: 0.2 }}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-pink-400 transition-colors cursor-pointer"
+                    >
+                        <ChevronLeft className="w-6 h-6 text-white" />
+                    </motion.button>}
 
+                    { relatedProducts.length > 0 && <motion.button
+                        onClick={scrollRight}
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ amount: 0.2 }}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-pink-400 transition-colors cursor-pointer"
+                    >
+                        <ChevronRight className="w-6 h-6 text-white" />
+                    </motion.button>}
+
+                    {relatedProducts.length === 0 && (
+                        <div className="text-gray-500 text-center py-4">
+                            No related products found.
+                        </div>
+                    )}
+
+                    {/* Scrollable Container */}
+                    <motion.div
+                        id="equipment-container"
+                        className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4 w-full max-w-full"
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ amount: 0.2 }}
+                        style={{
+                            scrollbarWidth: 'none',
+                            msOverflowStyle: 'none'
+                        }}
+                    >
+                        {relatedProducts?.map((product, index) => (
+                            <EquipmentCard index={index} product={product} />
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </div>
     );
