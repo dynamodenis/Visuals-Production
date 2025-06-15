@@ -1,8 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import AnimateSection from '../components/AnimateSection';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [title, setTitle] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const service_id = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const template_id = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const user_id = import.meta.env.VITE_EMAILJS_USER_ID;
+
+    setIsSubmitting(true);
+    setError(null);
+    setSuccess(false);
+
+    // Validate form fields
+    if (!name || !email || !title || !message) {
+      setError('Please fill in all required fields.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Send email using EmailJS
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      to_name: 'Prism Media',
+      subject: title,
+      message: message,
+    };
+
+    emailjs.send(service_id, template_id, templateParams, user_id)
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        setSuccess(true);
+        setName('');
+        setEmail('');
+        setTitle('');
+        setMessage('');
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        setError('Failed to send message. Please try again later.');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  }
   return (
     <div className='container mx-auto px-4 py-16 md:w-5xl bg-white'>
       <AnimateSection>
@@ -34,9 +87,9 @@ const Contact = () => {
                 <Phone className="text-red-400 w-8 h-8" />
                 <div>
                   <h3 className="text-lg text-gray-600 font-semibold mb-2">Telephone number</h3>
-                  <p className="text-gray-600">(+254) 0768173480</p>
-                  <p className="text-gray-600">(+254) 0704851232</p>
-                  <p className="text-gray-600">(+254) 0740863889</p>
+                  <a href="tel:+254768173480" className="text-gray-600 hover:text-red-600 block">(+254) 0768173480</a>
+                  <a href="tel:+254704851232" className="text-gray-600 hover:text-red-600 block">(+254) 0704851232</a>
+                  <a href="tel:+254740863889" className="text-gray-600 hover:text-red-600 block">(+254) 0740863889</a>
                 </div>
               </div>
             </div>
@@ -47,7 +100,9 @@ const Contact = () => {
                 <Mail className="text-red-400 w-8 h-8" />
                 <div>
                   <h3 className="text-lg text-gray-600 font-semibold mb-2 md:float-left">Mail address</h3>
-                  <p className="text-gray-600 md:float-left">dmbugua66@gmail.com</p>
+                  <p className="text-gray-600 md:float-left"><a href="mailto:dmbugua66@gmail.com" className="text-gray-600 hover:text-red-600 underline-none">
+                    dmbugua66@gmail.com
+                  </a></p>
                 </div>
               </div>
             </div>
@@ -55,47 +110,20 @@ const Contact = () => {
 
           {/* Right Side - Contact Form */}
           <div className="w-full md:w-2/3">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* First Name */}
                 <div>
                   <label className="block text-gray-600 text-sm font-medium mb-2 float-left">
-                    First Name <span className="text-pink-600">*</span>
+                    Full Name <span className="text-pink-600">*</span>
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+                    className="w-full text-gray-600 px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-1 focus:ring-red-600"
                     placeholder="First Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
-                </div>
-
-                {/* Last Name */}
-                <div>
-                  <label className="block text-gray-600 text-sm font-medium mb-2 float-left">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-                    placeholder="Last Name"
-                  />
-                </div>
-
-                {/* Phone/Mobile */}
-                <div className='flex flex-col justify-start items-start'>
-                  <label className="block text-gray-600 text-sm font-medium mb-2">
-                    Phone/Mobile <span className="text-pink-600">*</span>
-                  </label>
-                  <div className="flex">
-                    <select className="px-2 py-2 border border-r-0 border-red-400 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-400">
-                      <option value="ke">🇰🇪 +254</option>
-                    </select>
-                    <input
-                      type="tel"
-                      className="w-full px-4 py-2 border border-red-400 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-                      placeholder="Mobile Number"
-                    />
-                  </div>
                 </div>
 
                 {/* Email */}
@@ -105,10 +133,28 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+                    className="w-full text-gray-600 px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-1 focus:ring-red-600"
                     placeholder="Email Address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+
+
+              </div>
+
+              {/* Subject */}
+              <div>
+                <label className="block text-gray-600 text-sm font-medium mb-2 float-left">
+                  Subject <span className="text-pink-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  className="w-full text-gray-600 px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-1 focus:ring-red-600"
+                  placeholder="Subject"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
               </div>
 
               {/* Message */}
@@ -118,30 +164,59 @@ const Contact = () => {
                 </label>
                 <textarea
                   rows={6}
-                  className="w-full px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+                  className="w-full text-gray-600 px-4 py-2 border border-red-400 rounded-lg focus:outline-none focus:ring-1 focus:ring-red-600"
+                  placeholder="Your Message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
 
-              {/* Consent Checkbox */}
-              <div className="flex items-start gap-2">
-                <input
-                  type="checkbox"
-                  className="mt-1"
-                />
-                <label className="text-sm text-gray-600 ">
-                  I consent to have this website store my submitted information so they can respond to my inquiry
+              {/* Consent */}
+              {/* <div className="flex items-start gap-2">
+                <input type="checkbox" className="mt-1 text-red-400 focus:ring-red-400 rounded" required />
+                <label className="text-sm text-gray-600">
+                  I consent to have this website store my submitted information to respond to my inquiry
                 </label>
-              </div>
+              </div> */}
+
+              {/* Error / Success Message */}
+              {error && <div className="text-red-500">{error}</div>}
+              {success && <div className="text-green-600">Message sent successfully!</div>}
 
               {/* Submit Button */}
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-red-400 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 cursor-pointer"
+                  className={`px-6 py-2 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-400 cursor-pointer ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-400 hover:bg-red-700'
+                    }`}
+                  disabled={isSubmitting}
                 >
-                  Submit Request
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          fill="none"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                        ></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Submit Request'
+                  )}
                 </button>
               </div>
+
             </form>
           </div>
         </div>
