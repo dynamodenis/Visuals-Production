@@ -101,7 +101,7 @@ const Contact = () => {
                 <div>
                   <h3 className="text-lg text-gray-600 font-semibold mb-2 md:float-left">Mail address</h3>
                   <p className="text-gray-600 md:float-left"><a href="mailto:dmbugua66@gmail.com" className="text-gray-600 hover:text-red-600 underline-none">
-                    dmbugua66@gmail.com
+                    info@prismmedia.co.ke
                   </a></p>
                 </div>
               </div>
