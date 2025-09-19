@@ -1,19 +1,18 @@
-import { useState, memo } from 'react'
+import { useState, memo, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from './pages/Home'
-import About from './pages/About'
-import Services from './pages/Services'
-import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
-import Equipments from './pages/Equipments';
-import EquipmentDetail from './pages/EquipmentDetail';
 import AnimateSection from './components/AnimateSection';
 import ScrollToTop from './components/animations/ScrollToTop';
 
+const AboutPage = lazy(() => import('./pages/About'))
+const ContactPage = lazy(() => import('./pages/Contact'))
+const ServicesPage = lazy(() => import('./pages/Services'))
+const EquipmentsPage = lazy(() => import('./pages/Equipments'))
+const EquipmentDetailPage = lazy(() => import('./pages/EquipmentDetail'))
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -22,11 +21,11 @@ function App() {
         <Navbar /> {/* Include Navbar at the top */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/equipments" element={<Equipments />} />
-          <Route path="/equipment/:id" element={<EquipmentDetail />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/equipments" element={<EquipmentsPage />} />
+          <Route path="/equipment/:id" element={<EquipmentDetailPage />} />
         </Routes>
         <AnimateSection>
           <Footer /> {/* Include Footer at the bottom */}
