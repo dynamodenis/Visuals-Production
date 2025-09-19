@@ -1,12 +1,13 @@
-import { useState, memo, lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import AnimateSection from './components/AnimateSection';
 import ScrollToTop from './components/animations/ScrollToTop';
+import Loader from './components/animations/Loaded';
 
+const HomePage = lazy(() => import('./pages/Home'))
 const AboutPage = lazy(() => import('./pages/About'))
 const ContactPage = lazy(() => import('./pages/Contact'))
 const ServicesPage = lazy(() => import('./pages/Services'))
@@ -18,15 +19,17 @@ function App() {
     <>
       <Router>
         <ScrollToTop /> {/* Scroll to top on route change */}
-        <Navbar /> {/* Include Navbar at the top */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/equipments" element={<EquipmentsPage />} />
-          <Route path="/equipment/:id" element={<EquipmentDetailPage />} />
-        </Routes>
+        <Navbar />
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/equipments" element={<EquipmentsPage />} />
+            <Route path="/equipment/:id" element={<EquipmentDetailPage />} />
+          </Routes>
+        </Suspense>
         <AnimateSection>
           <Footer /> {/* Include Footer at the bottom */}
         </AnimateSection>
@@ -35,4 +38,4 @@ function App() {
   )
 }
 
-export default memo(App)
+export default App
