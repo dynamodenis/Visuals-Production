@@ -28,21 +28,21 @@ function MediaBuying() {
       </div>
       
       {/* Featured Campaign Success */}
-      <div className="w-full bg-gray-50 p-6 rounded-lg shadow-sm mb-6">
+      <div className="w-full bg-gray-50 p-6 rounded-2xl shadow-sm mb-6">
         <div className="flex items-center gap-2 mb-4">
           <Award size={24} className="text-pink-600" />
           <h2 className="text-xl font-semibold text-gray-800">Featured Campaign Success</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
+          <div className="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center">
             <span className="text-3xl font-bold text-pink-600 mb-1">350%</span>
             <span className="text-gray-600 text-sm text-center">ROI Increase</span>
           </div>
-          <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
+          <div className="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center">
             <span className="text-3xl font-bold text-pink-600 mb-1">45%</span>
             <span className="text-gray-600 text-sm text-center">Lower Cost Per Acquisition</span>
           </div>
-          <div className="bg-white p-4 rounded-lg shadow-sm flex flex-col items-center">
+          <div className="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center">
             <span className="text-3xl font-bold text-pink-600 mb-1">5.2M</span>
             <span className="text-gray-600 text-sm text-center">Impressions Generated</span>
           </div>
@@ -57,7 +57,7 @@ function MediaBuying() {
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Our Media Buying Platforms</h2>
         
         {/* Facebook & Instagram Ads */}
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm mb-5">
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm mb-5">
           <div className="p-5">
             <h3 className="text-lg font-medium text-gray-800 mb-3">Facebook & Instagram Ads</h3>
             <p className="text-gray-600 text-sm text-justify mb-3">
@@ -67,24 +67,24 @@ function MediaBuying() {
             <h4 className="text-md font-medium text-gray-700 mb-2">Key Strategies:</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <Target size={18} className="text-blue-600" />
+                <Target size={18} className="text-pink-600" />
                 <span>Custom Audience Creation & Lookalike Modeling</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <Zap size={18} className="text-blue-600" />
+                <Zap size={18} className="text-pink-600" />
                 <span>Dynamic Product & Carousel Ads</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <Users size={18} className="text-blue-600" />
+                <Users size={18} className="text-pink-600" />
                 <span>Retargeting & Remarketing Campaigns</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <BarChart2 size={18} className="text-blue-600" />
+                <BarChart2 size={18} className="text-pink-600" />
                 <span>A/B Testing & Performance Optimization</span>
               </div>
             </div>
             
-            <div className="bg-blue-50 p-3 rounded-md">
+            <div className="bg-gray-50 p-3 rounded-full">
               <p className="text-sm text-gray-700">
                 <strong>Platform Benefits:</strong> Detailed demographic targeting, visual-focused formats, immersive mobile experiences, integrated shopping features
               </p>
@@ -93,7 +93,7 @@ function MediaBuying() {
         </div>
         
         {/* Google Ads */}
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm mb-5">
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm mb-5">
           <div className="p-5">
             <h3 className="text-lg font-medium text-gray-800 mb-3">Google Ads</h3>
             <p className="text-gray-600 text-sm text-justify mb-3">
@@ -103,24 +103,24 @@ function MediaBuying() {
             <h4 className="text-md font-medium text-gray-700 mb-2">Key Strategies:</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <Search size={18} className="text-green-600" />
+                <Search size={18} className="text-pink-600" />
                 <span>Search Engine Marketing & Keyword Optimization</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <Eye size={18} className="text-green-600" />
+                <Eye size={18} className="text-pink-600" />
                 <span>Display Network & Programmatic Buying</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <DollarSign size={18} className="text-green-600" />
+                <DollarSign size={18} className="text-pink-600" />
                 <span>Smart Bidding & Conversion Optimization</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <PieChart size={18} className="text-green-600" />
+                <PieChart size={18} className="text-pink-600" />
                 <span>Performance Max & Cross-Channel Campaigns</span>
               </div>
             </div>
             
-            <div className="bg-green-50 p-3 rounded-md">
+            <div className="bg-gray-50 p-3 rounded-full">
               <p className="text-sm text-gray-700">
                 <strong>Platform Benefits:</strong> Intent-based targeting, extensive reach, comprehensive analytics, flexible campaign types
               </p>
@@ -129,7 +129,7 @@ function MediaBuying() {
         </div>
         
         {/* TikTok Ads */}
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm mb-5">
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm mb-5">
           <div className="p-5">
             <h3 className="text-lg font-medium text-gray-800 mb-3">TikTok Ads</h3>
             <p className="text-gray-600 text-sm text-justify mb-3">
@@ -156,7 +156,7 @@ function MediaBuying() {
               </div>
             </div>
             
-            <div className="bg-pink-50 p-3 rounded-md">
+            <div className="bg-pink-50 p-3 rounded-full">
               <p className="text-sm text-gray-700">
                 <strong>Platform Benefits:</strong> High engagement rates, viral potential, younger audience reach, authentic content formats
               </p>
@@ -173,17 +173,17 @@ function MediaBuying() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">Platform-Optimized Creative</h4>
             <p className="text-gray-600 text-sm">We create content specifically designed for each platform's unique specifications, audience behaviors, and best practices.</p>
           </div>
           
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">A/B Testing Framework</h4>
             <p className="text-gray-600 text-sm">Multiple creative variants are developed and systematically tested to identify the highest-performing content for your audience.</p>
           </div>
           
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">Rapid Iteration Cycle</h4>
             <p className="text-gray-600 text-sm">We continuously analyze performance data to refine creative assets, ensuring ongoing optimization of campaign results.</p>
           </div>
@@ -200,7 +200,7 @@ function MediaBuying() {
           <div className="space-y-6">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-16 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center z-10">
+                <div className="h-8 w-8 rounded-full bg-pink-600 flex items-center justify-center z-10">
                   <span className="text-white text-sm font-medium">1</span>
                 </div>
               </div>
@@ -212,7 +212,7 @@ function MediaBuying() {
             
             <div className="flex flex-col md:flex-row">
               <div className="md:w-16 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center z-10">
+                <div className="h-8 w-8 rounded-full bg-pink-600 flex items-center justify-center z-10">
                   <span className="text-white text-sm font-medium">2</span>
                 </div>
               </div>
@@ -224,7 +224,7 @@ function MediaBuying() {
             
             <div className="flex flex-col md:flex-row">
               <div className="md:w-16 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center z-10">
+                <div className="h-8 w-8 rounded-full bg-pink-600 flex items-center justify-center z-10">
                   <span className="text-white text-sm font-medium">3</span>
                 </div>
               </div>
@@ -236,7 +236,7 @@ function MediaBuying() {
             
             <div className="flex flex-col md:flex-row">
               <div className="md:w-16 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center z-10">
+                <div className="h-8 w-8 rounded-full bg-pink-600 flex items-center justify-center z-10">
                   <span className="text-white text-sm font-medium">4</span>
                 </div>
               </div>
@@ -248,7 +248,7 @@ function MediaBuying() {
             
             <div className="flex flex-col md:flex-row">
               <div className="md:w-16 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center z-10">
+                <div className="h-8 w-8 rounded-full bg-pink-600 flex items-center justify-center z-10">
                   <span className="text-white text-sm font-medium">5</span>
                 </div>
               </div>
@@ -260,7 +260,7 @@ function MediaBuying() {
             
             <div className="flex flex-col md:flex-row">
               <div className="md:w-16 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center z-10">
+                <div className="h-8 w-8 rounded-full bg-pink-600 flex items-center justify-center z-10">
                   <span className="text-white text-sm font-medium">6</span>
                 </div>
               </div>
@@ -274,7 +274,7 @@ function MediaBuying() {
       </div>
       
       {/* Data-Driven Approach */}
-      <div className="w-full bg-gray-50 p-5 rounded-lg shadow-sm mb-6">
+      <div className="w-full bg-gray-50 p-5 rounded-2xl shadow-sm mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Our Data-Driven Approach</h2>
         <p className="text-gray-600 text-sm mb-4">
           We believe in making decisions based on data, not assumptions. Our media buying strategies are continuously refined through:
@@ -330,7 +330,7 @@ function MediaBuying() {
           Our media buying strategies work hand-in-hand with our video, audio, and podcast production services, creating a cohesive marketing ecosystem that maximizes your investment.
         </p>
         
-        <div className="bg-red-50 p-5 rounded-lg">
+        <div className="bg-pink-50 p-5 rounded-lg">
           <h3 className="font-medium text-gray-800 mb-3">The Prism Media Advantage</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start gap-2">
@@ -360,7 +360,7 @@ function MediaBuying() {
           </div>
           
           <div className="mt-4">
-            <a href="/video-audio-podcast" className="text-pink-600  hover:text-red-800 text-sm font-medium flex items-center">
+            <a href="/video-audio-podcast" className="text-pink-600  hover:text-pink-700 text-sm font-medium flex items-center">
               Learn About Our Production Services
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -371,14 +371,14 @@ function MediaBuying() {
       </div>
       
       {/* CTA Section */}
-      <div className="w-full bg-red-50 p-6 rounded-lg shadow-sm mb-6">
+      <div className="w-full bg-pink-50 p-6 rounded-2xl shadow-sm mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Launch Your Media Campaign?</h2>
         <p className="text-gray-600 text-sm mb-4">Contact our media buying experts today to discuss your marketing goals and receive a customized strategy proposal.</p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <a href="/contact" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
+          <a href="/contact" className="bg-pink-600  text-white px-4 py-2 rounded-full hover:bg-pink-700 inline-block text-sm font-medium text-center">
             Request a Strategy Call
           </a>
-          {/* <a href="/case-studies" className="bg-white border border-red-600 text-pink-600  px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
+          {/* <a href="/case-studies" className="bg-white border border-pink-600 text-pink-600  px-4 py-2 rounded-full hover:bg-pink-50 inline-block text-sm font-medium text-center">
             View Case Studies
           </a> */}
         </div>

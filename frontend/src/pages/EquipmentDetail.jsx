@@ -1,180 +1,186 @@
-import React, {useEffect, useState} from 'react';
-import { Share, Heart, ShoppingCart, Video, Mic, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useParams } from 'react-router-dom';
-import EquipmentCard from '../components/EquipmentCard';
+import React, { useEffect, useMemo } from 'react';
+import { ChevronLeft, ChevronRight, ArrowLeft, Check } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
-const fadeUpVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
-};
+import EquipmentCard from '../components/EquipmentCard';
+import Button from '../components/ui/Button';
+import Seo from '../components/Seo';
+import { useEquipementStore } from '../zustand/store';
 
 const EquipmentDetail = () => {
     const { id } = useParams();
+    const { equipements, getEquipements } = useEquipementStore();
 
-    const [product, setProduct] = useState({})
-    const [relatedProducts, setRelatedProducts] = useState([]);
     useEffect(() => {
-            const stored = localStorage.getItem('equipements');
-            if (stored) {
-                const equipements = JSON.parse(stored);
-                const item = equipements[id]
-                if (item){
-                    setProduct(item)
-                    const related = equipements.filter((equip) => equip.category.some(cat => item.category.includes(cat)));
-                    setRelatedProducts(related); // Exclude current product and limit to 5
-                }
-            }
-        }, [id]);
+        getEquipements();
+    }, []);
+
+    const product = equipements?.[id];
+
+    // Items sharing a category with the current product, original indices preserved
+    const relatedProducts = useMemo(() => {
+        if (!product || !equipements) return [];
+        return equipements
+            .map((equip, originalIndex) => ({ equip, originalIndex }))
+            .filter(
+                ({ equip, originalIndex }) =>
+                    originalIndex !== Number(id) &&
+                    equip.category?.some((cat) => product.category?.includes(cat))
+            );
+    }, [equipements, product, id]);
 
     const scrollLeft = () => {
         const container = document.getElementById('equipment-container');
-        container.scrollLeft -= 300;
+        container.scrollBy({ left: -320, behavior: 'smooth' });
     };
 
     const scrollRight = () => {
         const container = document.getElementById('equipment-container');
-        container.scrollLeft += 300;
+        container.scrollBy({ left: 320, behavior: 'smooth' });
     };
 
-    return (
-        <div className="container mx-auto px-6 pt-8 mt-12 md:mt-5 md:py-16 bg-white max-w-sreen">
-            <div className='flex flex-col items-center pt-10 md:py-10'>
-                <h2 className="text-3xl font-medium font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Video className="mr-3 text-red-400 animate-bounce" /><span>{product?.title} </span><Mic className="ml-2 text-red-400 animate-bounce" /></h2>
+    if (!product) {
+        return (
+            <div className="container mx-auto px-6 md:px-10 pt-36 pb-24 bg-white text-center">
+                <p className="text-gray-500 mb-6">Equipment not found.</p>
+                <Button to="/equipments" variant="dark">Browse Equipment</Button>
             </div>
-            {/* Product Image */}
-            <div className="flex flex-col md:flex-row w-full gap-4 md:gap-10">
-                <div className="rounded-lg md:w-1/2">
+        );
+    }
+
+    return (
+        <div className="container mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-20 bg-white">
+            <Seo
+                title={`${product.title} for Hire`}
+                description={`Rent the ${product.title} in Nairobi from KSh ${product.price?.toLocaleString()} per day at Prism Media. Book online or call to reserve.`}
+                path={`/equipment/${id}`}
+            />
+            {/* Breadcrumb back link */}
+            <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8 text-left"
+            >
+                <Link
+                    to="/equipments"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-pink-600 transition-colors"
+                >
+                    <ArrowLeft className="w-4 h-4" /> All Equipment
+                </Link>
+            </motion.div>
+
+            {/* Product */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start mb-20">
+                {/* Image */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="group rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden"
+                >
                     <img
-                        src={product?.image}
-                        alt={product?.title}
-                        className="w-3/4 h-auto"
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-auto object-contain aspect-square transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                </div>
+                </motion.div>
 
-                <div>
-                    <div className="flex flex-col items-start">
-                        <div className="text-xl font-bold text-red-400">{product?.title}</div>
-
-                        <div className="mb-2">
-                            {product?.price != null ? (
-                                <span className="text-md text-green-600 font-semibold font-small">
-                                    {product?.currency} {product.price.toLocaleString()}
-                                </span>
-                            ) : (
-                                <span className="text-gray-400">Price not available</span>
-                            )}
-
-                        </div>
-                    </div>
-
-                    {/* Quantity and Add to Cart */}
-                    <div className="flex gap-4 mb-4">
-                        <div className="flex border rounded">
-                            <input
-                                type="number"
-                                className="border rounded border-gray-300 text-gray-600  focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-transparent w-10 px-1"
-                                min="1"
-                                defaultValue={product?.quantity || 1}
-                            />
-                        </div>
-                        <button className="bg-green-500 text-sm  text-white px-2 py-2 rounded flex items-center gap-2 hover:bg-green-600">
-                            <ShoppingCart size={15} />
-                            Add to cart
-                        </button>
-                    </div>
-
-                    {/* Categories */}
-                    <div className="mb-2 text-sm">
-                        <span className="text-gray-600">Categories: </span>
-                        {product?.category?.map((cat, index) => (
-                            <span key={index}>
-                                <a href="#" className="text-blue-500 hover:underline">{cat}</a>
-                                {index < product?.category.length - 1 && ', '}
+                {/* Info */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex flex-col items-start text-left"
+                >
+                    {/* Category chips */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {product.category?.map((cat, index) => (
+                            <span
+                                key={index}
+                                className="rounded-full bg-pink-600/10 text-pink-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide"
+                            >
+                                {cat}
                             </span>
                         ))}
                     </div>
 
-                    {/* Social Share */}
-                    <div className="flex gap-2 mb-8 text-sm">
-                        <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
-                            <Share size={15} /> Share
-                        </button>
-                        <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
-                            <Heart size={15} /> Wishlist
-                        </button>
-                    </div>
-                </div>
-            </div>
+                    <h1 className="display-section text-gray-900 mb-4">{product.title}</h1>
 
-            {/* Product Details */}
-            <div className="w-full ">
-                {/* Key Features */}
-                <div className='flex flex-col items-start pt-10'>
-                    <div className="text-xl font-semibold text-gray-600 underline underline-offset-6 decoration-red-400 ">Description</div>
-                    <div className="w-full border-t border-gray-300 mb-2"></div>
-                    <div className='flex flex-col items-start justify-start font-small text-sm md:w-1/2'>
-                        <div className="font-semibold mb-2 text-gray-400 ">Key Features</div>
-                        <ul className="list-disc pl-4 ml-8">
-                            {product?.features?.map((feature, index) => (
-                                <li key={index} className="text-gray-400">{feature}</li>
-                            ))}
-                        </ul>
+                    <div className="mb-8">
+                        {product.price != null ? (
+                            <p className="text-2xl md:text-3xl font-extrabold text-pink-600">
+                                {product.currency ?? 'KSH'} {product.price.toLocaleString()}
+                                <span className="text-gray-400 font-medium text-base"> / day</span>
+                            </p>
+                        ) : (
+                            <span className="text-gray-400">Price not available</span>
+                        )}
                     </div>
 
-                </div>
-            </div>
-
-            <div className='flex flex-col items-start md:py-10'>
-                <div className="text-xl font-semibold mb-4 text-gray-600">Related Products</div>
-                <div className="relative">
-                    {/* Scroll Buttons */}
-                    { relatedProducts.length > 0 && <motion.button
-                        onClick={scrollLeft}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2 }}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-pink-400 transition-colors cursor-pointer"
-                    >
-                        <ChevronLeft className="w-6 h-6 text-white" />
-                    </motion.button>}
-
-                    { relatedProducts.length > 0 && <motion.button
-                        onClick={scrollRight}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2 }}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-pink-400 transition-colors cursor-pointer"
-                    >
-                        <ChevronRight className="w-6 h-6 text-white" />
-                    </motion.button>}
-
-                    {relatedProducts.length === 0 && (
-                        <div className="text-gray-500 text-center py-4">
-                            No related products found.
+                    {/* Key features */}
+                    {product.features?.length > 0 && (
+                        <div className="mb-8 w-full">
+                            <h3 className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-4">
+                                Key Features
+                            </h3>
+                            <ul className="space-y-2.5">
+                                {product.features.map((feature, index) => (
+                                    <li key={index} className="flex items-start gap-3 text-gray-600 text-sm md:text-base">
+                                        <Check className="w-4 h-4 text-pink-600 mt-1 shrink-0" />
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     )}
 
-                    {/* Scrollable Container */}
-                    <motion.div
-                        id="equipment-container"
-                        className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4 w-full max-w-full"
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2 }}
-                        style={{
-                            scrollbarWidth: 'none',
-                            msOverflowStyle: 'none'
-                        }}
-                    >
-                        {relatedProducts?.map((product, index) => (
-                            <EquipmentCard key={index} index={index} product={product} />
-                        ))}
-                    </motion.div>
-                </div>
+                    <div className="flex flex-wrap gap-4">
+                        <Button to="/contact">Book This Equipment</Button>
+                        <Button href="tel:+254768173480" variant="outline" withArrow={false}>
+                            Call to Reserve
+                        </Button>
+                    </div>
+                </motion.div>
+            </div>
+
+            {/* Related products */}
+            <div className="text-left">
+                <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 mb-8">
+                    Related Products
+                </h2>
+
+                {relatedProducts.length === 0 ? (
+                    <div className="text-gray-500 rounded-2xl border border-dashed border-gray-200 text-center py-12">
+                        No related products found.
+                    </div>
+                ) : (
+                    <div className="relative">
+                        <button
+                            onClick={scrollLeft}
+                            aria-label="Scroll left"
+                            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-[#0a0a21] text-white shadow-lg hover:bg-pink-600 transition-colors duration-300 cursor-pointer"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                            onClick={scrollRight}
+                            aria-label="Scroll right"
+                            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-[#0a0a21] text-white shadow-lg hover:bg-pink-600 transition-colors duration-300 cursor-pointer"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+
+                        <div
+                            id="equipment-container"
+                            className="flex overflow-x-auto gap-6 scroll-smooth hide-scrollbar py-4 px-1"
+                        >
+                            {relatedProducts.map(({ equip, originalIndex }) => (
+                                <EquipmentCard key={originalIndex} index={originalIndex} product={equip} />
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -28,12 +28,12 @@ const LoadableImage = ({ src, alt, className, loaderClassName, ...props }) => {
                 loading="eager"
                 {...props}
             />
-            
+    
             {/* Show loading placeholder while loading */}
             {loading && !error && (
                 <div className={`animate-pulse bg-gray-600 ${loaderClassName}`}></div>
             )}
-            
+
             {/* Show error state if image fails to load */}
             {error && (
                 <div className="flex items-center justify-center w-15 h-15 mr-2 bg-red-100 rounded-full text-red-500 text-xs">

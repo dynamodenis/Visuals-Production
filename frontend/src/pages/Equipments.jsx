@@ -1,211 +1,138 @@
-import React, { useState, useEffect } from 'react';
-import { Camera, Video, Mic, Laptop, Search, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Search } from 'lucide-react';
+import { motion } from 'framer-motion';
 import EquipmentCard from '../components/EquipmentCard';
-import AnimateSection from '../components/AnimateSection';
+import PageHero from '../components/ui/PageHero';
+import Seo from '../components/Seo';
 import { useEquipementStore } from '../zustand/store';
 
+const categories = [
+    { name: 'All Products', keywords: [], value: 'all' },
+    { name: 'Camera', keywords: ['Camera'], value: 'camera' },
+    { name: 'Lighting', keywords: ['Lighting', 'Light'], value: 'lighting' },
+    { name: 'Audio', keywords: ['Audio', 'Sound'], value: 'audio' },
+    { name: 'Others', keywords: ['Miscellaneous', 'Accessories'], value: 'others' },
+];
 
 const Equipments = () => {
-    const { equipements } = useEquipementStore();
+    const { equipements, getEquipements } = useEquipementStore();
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
 
-    const categories = [
-        {
-            name: "All Products",
-            keywords: [],
-            value: "all"
-        },
-        {
-            name: "Camera Equipment",
-            keywords: ["Camera"],
-            value: "camera"
-        },
-        {
-            name: "Lighting Equipment",
-            keywords: ["Lighting", "Light"],
-            value: "lighting"
-        },
-        {
-            name: "Audio Equipment",
-            keywords: ["Audio", "Sound"],
-            value: "audio"
-        },
-        {
-            name: "Others",
-            keywords: ["Miscellaneous", "Accessories"],
-            value: "others"
-        }
-    ];
-
-    const [allEquipements, setAllEquipements] = useState([]); // Store original data
-    const [filteredEquipements, setFilteredEquipements] = useState([]); // Store filtered data
-
     useEffect(() => {
-        setAllEquipements(equipements);
-        setFilteredEquipements(equipements);
+        getEquipements();
     }, []);
 
-    // Filter by category
-    const filterByCategory = (category) => {
-        setSelectedCategory(category.value);
+    // Live filtering derived from store + UI state; originalIndex preserved so
+    // detail links point at the right item in the full list.
+    const filteredEquipements = useMemo(() => {
+        const category = categories.find((cat) => cat.value === selectedCategory);
+        const searchTerm = searchQuery.trim().toLowerCase();
 
-        let filtered = allEquipements;
+        return (equipements ?? [])
+            .map((product, originalIndex) => ({ product, originalIndex }))
+            .filter(({ product }) => {
+                if (category && category.value !== 'all') {
+                    const inCategory = product.category?.some((productCategory) =>
+                        category.keywords.some(
+                            (keyword) => productCategory.toLowerCase() === keyword.toLowerCase()
+                        )
+                    );
+                    if (!inCategory) return false;
+                }
 
-        // Filter by category (if not "all")
-        if (category.value !== 'all') {
-            filtered = filtered.filter(product =>
-                product.category?.some(productCategory =>
-                    category.keywords.some(keyword =>
-                        productCategory.toLowerCase() === keyword.toLowerCase()
-                    )
-                )
-            );
-        }
+                if (searchTerm) {
+                    const titleMatch = product.title?.toLowerCase().includes(searchTerm);
+                    const categoryMatch = product.category?.some((cat) =>
+                        cat.toLowerCase().includes(searchTerm)
+                    );
+                    const descriptionMatch = product.description?.toLowerCase().includes(searchTerm);
+                    if (!titleMatch && !categoryMatch && !descriptionMatch) return false;
+                }
 
-        // Apply search filter if there's a search query
-        if (searchQuery.trim()) {
-            filtered = filtered.filter(product => {
-                const searchTerm = searchQuery.toLowerCase();
-
-                // Search in title
-                const titleMatch = product.title?.toLowerCase().includes(searchTerm);
-
-                // Search in categories array
-                const categoryMatch = product.category?.some(cat =>
-                    cat.toLowerCase().includes(searchTerm)
-                );
-
-                // Search in description (if it exists)
-                const descriptionMatch = product.description?.toLowerCase().includes(searchTerm);
-
-                return titleMatch || categoryMatch || descriptionMatch;
+                return true;
             });
-        }
-
-        setFilteredEquipements(filtered);
-    };
-
-    // Filter by search
-    const handleSearch = () => {
-        let filtered = allEquipements;
-
-        // Apply category filter first (if not "all")
-        const currentCategory = categories.find(cat => cat.value === selectedCategory);
-        if (currentCategory && currentCategory.value !== 'all') {
-            filtered = filtered.filter(product =>
-                product.category?.some(productCategory =>
-                    category.keywords.some(keyword =>
-                        productCategory.toLowerCase() === keyword.toLowerCase()
-                    )
-                )
-            );
-        }
-
-        // Apply search filter
-        if (searchQuery.trim()) {
-            filtered = filtered.filter(product => {
-                const searchTerm = searchQuery.toLowerCase();
-
-                // Search in title
-                const titleMatch = product.title?.toLowerCase().includes(searchTerm);
-
-                // Search in categories array
-                const categoryMatch = product.category?.some(cat =>
-                    cat.toLowerCase().includes(searchTerm)
-                );
-
-                // Search in description (if it exists)
-                const descriptionMatch = product.description?.toLowerCase().includes(searchTerm);
-
-                return titleMatch || categoryMatch || descriptionMatch;
-            });
-        }
-
-        setFilteredEquipements(filtered);
-    };
-
-    // Handle search input change
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);
-        // Optional: Real-time search (uncomment if you want instant search)
-        // handleSearch();
-    };
+    }, [equipements, selectedCategory, searchQuery]);
 
     return (
-        <div className='container mx-auto px-6 py-16 bg-white'>
-            <AnimateSection>
-                <div className='flex flex-col items-center py-10'>
-                    <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900">
-                        <Video className="mr-3 text-pink-600" />
-                        <span>Equipment List </span>
-                        <Mic className="ml-2 text-pink-600" />
-                    </h2>
-                    <div className='italic text-gray-600 text-center md:w-3xl'>
-                        <p>From DSLR cameras to studio lighting and sound equipment, we offer premium rentals for filmmakers, vloggers, and creatives looking to produce high-quality content.</p>
-                    </div>
-                </div>
+        <div className='bg-white'>
+            <Seo
+                title="Camera & Production Equipment Rental in Nairobi"
+                description="Rent professional production gear in Nairobi: Sony a7 IV, DJI mics, RS4 Pro gimbal, Aputure lighting, softboxes and more — daily rates from KSh 500."
+                path="/equipments"
+            />
+            <PageHero
+                eyebrow="Gear up"
+                title="Equipment Rental"
+                subtitle="From DSLR cameras to studio lighting and sound equipment, we offer premium rentals for filmmakers, vloggers, and creatives looking to produce high-quality content."
+            />
 
-                <div className='grid grid-cols-1 md:grid-cols-4 pb-4'>
-                    {/* Left Sidebar */}
-                    <div className='space-y-2'>
-                        {/* Search Section */}
-                        <div className='space-y-2 flex flex-col justify-start items-start'>
-                            <h3 className='text-sm font-semibold text-gray-600'>Search Products</h3>
-                            <div className='flex'>
-                                <input
-                                    type="text"
-                                    placeholder="Search products..."
-                                    value={searchQuery}
-                                    onChange={handleSearchChange}
-                                    onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                                    className='flex-1 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-red-400 focus:border-transparent px-2 py-2 text-gray-700'
-                                />
+            <div className='container mx-auto px-6 md:px-10 py-16 md:py-20'>
+                {/* Toolbar: category pills + search */}
+                <div className='flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-12'>
+                    <div className='flex flex-wrap gap-2.5'>
+                        {categories.map((category) => {
+                            const isActive = selectedCategory === category.value;
+                            return (
                                 <button
-                                    onClick={handleSearch}
-                                    className='px-2 py-2 bg-pink-600 text-white rounded-r hover:bg-pink-700 transition-colors cursor-pointer'
+                                    key={category.value}
+                                    onClick={() => setSelectedCategory(category.value)}
+                                    className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 cursor-pointer border ${
+                                        isActive
+                                            ? 'bg-[#0a0a21] text-white border-[#0a0a21]'
+                                            : 'bg-white text-gray-600 border-gray-200 hover:border-pink-600 hover:text-pink-600'
+                                    }`}
                                 >
-                                    <Search className='w-5 h-5' />
+                                    {category.name}
                                 </button>
-                            </div>
-                        </div>
-
-                        {/* Categories Section */}
-                        <div className='space-y-2 flex flex-col justify-start items-start'>
-                            <h3 className='text-sm font-semibold text-gray-600'>Product Categories</h3>
-                            <ul className='space-y-2'>
-                                {categories.map((category, index) => (
-                                    <li
-                                        key={index}
-                                        className={`cursor-pointer ${selectedCategory === category.value
-                                            ? 'text-pink-600 font-medium'
-                                            : 'text-gray-600 hover:text-pink-600'
-                                            }`}
-                                        onClick={() => filterByCategory(category)}
-                                    >
-                                        <p className='flex items-center text-sm'>
-                                            <ChevronRight className='w-4 h-4 mr-2' />
-                                            {category.name}
-                                        </p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                            );
+                        })}
                     </div>
 
-                    <div className="grid md:grid-cols-3 col-span-3 justify-center items-center pb-4 gap-4">
-                        {filteredEquipements?.length > 0 ? (
-                            filteredEquipements.map((product, index) => (
-                                <EquipmentCard key={index} index={index} product={product} />
-                            ))
-                        ) : (
-                            <div className="col-span-3 text-center py-8">
-                                <p className="text-gray-500">No equipment found matching your criteria.</p>
-                            </div>
-                        )}
+                    <div className='relative w-full lg:w-80'>
+                        <Search className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400' />
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className='w-full rounded-full border border-gray-200 pl-11 pr-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-600/60 focus:border-pink-600 transition-all duration-300'
+                        />
                     </div>
                 </div>
-            </AnimateSection>
+
+                {/* Result count */}
+                <p className='text-sm text-gray-400 mb-6 text-left'>
+                    Showing {filteredEquipements.length} of {equipements?.length ?? 0} products
+                </p>
+
+                {/* Grid */}
+                {filteredEquipements.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {filteredEquipements.map(({ product, originalIndex }, i) => (
+                            <motion.div
+                                key={originalIndex}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '-5%' }}
+                                transition={{ duration: 0.5, delay: (i % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                                <EquipmentCard index={originalIndex} product={product} className="w-full" />
+                            </motion.div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-20 rounded-2xl border border-dashed border-gray-200">
+                        <p className="text-gray-500">No equipment found matching your criteria.</p>
+                        <button
+                            onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
+                            className='mt-3 text-pink-600 font-semibold text-sm hover:underline cursor-pointer'
+                        >
+                            Clear filters
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

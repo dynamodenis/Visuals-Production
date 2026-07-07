@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy: #0a0a21;
+  --color-navy-800: #12122e;
+  --color-navy-700: #1a1a3e;
+  --color-brand: #db2777; /* pink-600 — primary accent */
+  --color-brand-hover: #be185d;
+  --font-sans: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,6 +26,11 @@
 body {
   min-width: 320px;
   min-height: 100vh;
+}
+
+::selection {
+  background-color: #db2777;
+  color: #ffffff;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -48,4 +61,70 @@ body {
 
 .dark_blue_bg {
   background-color: #0a0a21;
+}
+
+/* Oversized display headings used across section heroes */
+.display-hero {
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.display-section {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* Infinite marquee strip */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Slow float for decorative blobs */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.04); }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+/* Scroll-down cue on the hero */
+@keyframes scroll-cue {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+.animate-scroll-cue {
+  animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
+/* Gradient text for hero accent words */
+.text-gradient-brand {
+  background: linear-gradient(90deg, #db2777 0%, #e879f9 55%, #db2777 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow label above section titles */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #db2777;
 }

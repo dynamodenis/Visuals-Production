@@ -16,7 +16,7 @@ function EquipmentRental() {
         <div className="flex justify-center my-6">
           <Link
             to="/equipments"
-            className="bg-pink-600  text-white px-6 py-3 rounded-md hover:bg-red-700 inline-block text-md font-medium text-center"
+            className="bg-pink-600  text-white px-6 py-3 rounded-full hover:bg-pink-700 inline-block text-md font-medium text-center"
           >
             View All Equipment
           </Link>
@@ -26,9 +26,9 @@ function EquipmentRental() {
       <div className="w-full mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Simple Rental Process</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-5 rounded-2xl shadow-sm">
             <div className="flex justify-center mb-4">
-              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
+              <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
                 <span className="text-pink-600  text-xl font-bold">1</span>
               </div>
             </div>
@@ -38,9 +38,9 @@ function EquipmentRental() {
             </p>
           </div>
           
-          <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-5 rounded-2xl shadow-sm">
             <div className="flex justify-center mb-4">
-              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
+              <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
                 <span className="text-pink-600  text-xl font-bold">2</span>
               </div>
             </div>
@@ -50,9 +50,9 @@ function EquipmentRental() {
             </p>
           </div>
           
-          <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-5 rounded-2xl shadow-sm">
             <div className="flex justify-center mb-4">
-              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
+              <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
                 <span className="text-pink-600  text-xl font-bold">3</span>
               </div>
             </div>
@@ -135,7 +135,7 @@ function EquipmentRental() {
       <div className="w-full mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">What Our Clients Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-sm">
+          <div className="bg-white border border-gray-200 p-4 rounded-2xl shadow-sm">
             <div className="flex items-center gap-3 mb-3">
               <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold">
                 JD
@@ -150,7 +150,7 @@ function EquipmentRental() {
             </p>
           </div>
           
-          <div className="bg-white border border-gray-200 p-4 rounded-lg shadow-sm">
+          <div className="bg-white border border-gray-200 p-4 rounded-2xl shadow-sm">
             <div className="flex items-center gap-3 mb-3">
               <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold">
                 SP
@@ -168,7 +168,7 @@ function EquipmentRental() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        {/* <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
+        {/* <div className="bg-gray-50 p-5 rounded-2xl shadow-sm">
           <h3 className="font-medium text-gray-800 mb-3">Insurance Options</h3>
           <p className="text-gray-600 text-sm mb-3">
             Protect your rental with our flexible insurance options. We offer coverage plans for damage, loss, and liability to give you peace of mind during your production.
@@ -189,7 +189,7 @@ function EquipmentRental() {
           </ul>
         </div> */}
         
-        <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
+        <div className="bg-gray-50 p-5 rounded-2xl shadow-sm">
           <h3 className="font-medium text-gray-800 mb-3">Technical Support</h3>
           <p className="text-gray-600 text-sm mb-3">
             Our expert technicians are available to help you get the most out of your rented equipment, from setup assistance to troubleshooting.
@@ -211,14 +211,14 @@ function EquipmentRental() {
         </div>
       </div>
 
-      <div className="w-full bg-red-50 p-6 rounded-lg shadow-sm mb-6">
+      <div className="w-full bg-pink-50 p-6 rounded-2xl shadow-sm mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Rent Professional Equipment?</h2>
         <p className="text-gray-600 text-sm mb-4">Browse our complete inventory and book your equipment today for your next production.</p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <Link to="/equipments" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium text-center">
+          <Link to="/equipments" className="bg-pink-600  text-white px-4 py-2 rounded-full hover:bg-pink-700 inline-block text-sm font-medium text-center">
             Browse Equipment Catalog
           </Link>
-          <Link to="/contact" className="bg-white border border-red-600 text-pink-600  px-4 py-2 rounded-md hover:bg-red-50 inline-block text-sm font-medium text-center">
+          <Link to="/contact" className="bg-white border border-pink-600 text-pink-600  px-4 py-2 rounded-full hover:bg-pink-50 inline-block text-sm font-medium text-center">
             Contact Rental Department
           </Link>
         </div>

@@ -1,166 +1,102 @@
 import React from 'react'
-import { Medal, TrophyIcon, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import { Award } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SectionHeading from './ui/SectionHeading';
+import CountUp from './animations/CountUp';
 
-const fadeUpVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
-};
+const statsData = [
+    { label: 'Projects Delivered', end: '27', suffix: '+' },
+    { label: 'Happy Clients', end: '13', suffix: '' },
+    { label: 'Marketing Impressions', end: '5.4', suffix: 'M' },
+    { label: 'Conversions Driven', end: '50.5', suffix: 'K' },
+];
+
+const achievementData = [
+    {
+        id: 1,
+        title: 'Tourism Reporting Award 2025 at AJEA',
+        description:
+            "Charles Muthoni, our co-founder, director, and videographer, won the prestigious Tourism Reporting Award at the Annual Journalism Excellence Awards (AJEA) 2025 in Kenya. His creative storytelling and dedication to impactful visual journalism earned national recognition. This award is a proud milestone reflecting our team's commitment to excellence and innovation.",
+        image: '/photos/charles_award.jpeg',
+    },
+];
 
 function Achievements() {
-  const statsData = [
-    {
-      icon: "🎯", // You can replace with actual icons/SVGs
-      label: "Projects",
-      value: "27"
-    },
-    {
-      icon: "👥",
-      label: "Clients",
-      value: "13"
-    },
-    {
-      icon: "🌐",
-      label: "Marketing Impressions",
-      value: "5.4 M"
-    },
-    {
-      icon: "🎁",
-      label: "Conversions",
-      value: "50.53K"
-    }
-  ];
+    return (
+        <section className="relative py-14 md:py-16 overflow-hidden">
+            {/* Background image with navy wash for readability */}
+            <div
+                className="absolute inset-0 w-full h-full z-0 bg-cover bg-center bg-fixed"
+                style={{ backgroundImage: 'url(/photos/achievements_background1.jpg)' }}
+            />
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0a0a21]/90 via-[#0a0a21]/75 to-[#0a0a21]/90" />
 
-  const achievementData = [
-    {
-      id: 1,
-      title: "Tourism Reporting Award 2025 at AJEA",
-      description: "Charles Muthoni, our co-founder, director, and videographer, won the prestigious Tourism Reporting Award at the Annual Journalism Excellence Awards (AJEA) 2025 in Kenya. His creative storytelling and dedication to impactful visual journalism earned national recognition. This award is a proud milestone reflecting our team's commitment to excellence and innovation.",
-      image: "/photos/charles_award.jpeg"
-    },
-    
-  ];
+            <div className="relative z-10 container mx-auto px-6 md:px-10">
+                <SectionHeading
+                    eyebrow="Recognition"
+                    title="Achievements"
+                    subtitle="Milestones and awards that reflect our commitment to excellence in visual storytelling."
+                    variant="dark"
+                />
 
-  const scrollLeft = () => {
-    const container = document.getElementById('achievement-container');
-    container.scrollLeft -= 300;
-  };
-
-  const scrollRight = () => {
-    const container = document.getElementById('achievement-container');
-    container.scrollLeft += 300;
-  };
-
-  return (
-    <div className='py-12 relative shadow-md min-h-screen'>
-      <div
-        className="absolute inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: `url(/photos/achievements_background1.jpg)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.9
-        }}
-      />
-
-      <div className="relative z-20 container mx-auto px-4 text-center h-full flex flex-col">
-        {/* Top 60% - Achievement Stories */}
-        <div className="flex-grow mb-8">
-          <motion.h2
-            className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-white"
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2 }}
-          ><Medal className="mr-3 text-pink-600" /><span>Achievements </span><TrophyIcon className="ml-2 text-pink-600" /></motion.h2>
-
-          {/* Scroll Buttons */}
-          <motion.button
-            onClick={scrollLeft}
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
-          >
-            <ChevronLeft className="w-6 h-6 text-white" />
-          </motion.button>
-
-          <motion.button
-            onClick={scrollRight}
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2 }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600 p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors cursor-pointer"
-          >
-            <ChevronRight className="w-6 h-6 text-white" />
-          </motion.button>
-
-          <motion.div 
-            className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4" 
-            id="achievement-container"
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2 }}
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
-            }}
-          >
-            {/* Achievement story cards */}
-            {achievementData.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden flex-none w-80 md:w-96 lg:w-1/2"
-              >
-                <div className="flex flex-col md:flex-row">
-                  {/* Image Section */}
-                  <div className="w-full md:w-1/2  relative overflow-hidden">
-                    <img
-                      src={item.image ? item.image : "/photos/achievements_background1.jpg"}
-                      alt={item.title}
-                      className="w-full h-full object-contain md:object-cover object-center bg-gray-100"
-                    />
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className="w-full md:w-1/2 p-6 dark_blue_bg text-white flex flex-col justify-center text-left opacity-90">
-                    <h3 className="text-lg md:text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-sm mb-4 opacity-90 leading-relaxed">{item.description}</p>
-                  </div>
+                {/* Award spotlight cards */}
+                <div className="max-w-3xl mx-auto mb-10">
+                    {achievementData.map((item) => (
+                        <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-10%' }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                            className="group grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md"
+                        >
+                            <div className="overflow-hidden flex items-center justify-center">
+                                <img
+                                    src={item.image ? item.image : '/photos/achievements_background1.jpg'}
+                                    alt={item.title}
+                                    className="w-full h-52 md:h-72 object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                                />
+                            </div>
+                            <div className="p-5 md:p-6 flex flex-col justify-center text-left">
+                                <span className="inline-flex items-center gap-2 text-pink-500 text-xs font-bold uppercase tracking-[0.2em] mb-2">
+                                    <Award className="w-4 h-4" /> Award Winner
+                                </span>
+                                <h3 className="text-lg md:text-xl font-extrabold tracking-tight text-white mb-2">
+                                    {item.title}
+                                </h3>
+                                <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
 
-        {/* Bottom 40% - Stats Cards */}
-        <motion.div 
-          className="mt-8" 
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.2 }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {statsData.map((stat, index) => (
-              <div
-                key={index}
-                className="dark_blue_bg opacity-80 p-6 rounded-lg shadow-lg text-white text-center"
-              >
-                <div className="text-2xl mb-2">{stat.icon}</div>
-                <div className="text-sm font-medium mb-1 opacity-80">{stat.label}</div>
-                <div className="text-3xl font-bold">{stat.value}</div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  )
+                {/* Count-up stat band */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-10%' }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="grid grid-cols-2 md:grid-cols-4 max-w-5xl mx-auto border-t border-white/15"
+                >
+                    {statsData.map((stat, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col items-center text-center px-4 py-4 md:py-5 border-white/15 [&:nth-child(even)]:border-l md:[&:not(:first-child)]:border-l"
+                        >
+                            <div className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-1">
+                                <CountUp end={stat.end} suffix={stat.suffix} />
+                            </div>
+                            <div className="text-xs md:text-sm uppercase tracking-[0.15em] text-gray-400">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    )
 }
 
 export default React.memo(Achievements)

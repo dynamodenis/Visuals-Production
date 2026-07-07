@@ -1,131 +1,142 @@
-import React from 'react';
-import { ChevronRight } from 'lucide-react';
-import { motion } from "framer-motion";
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import Button from './ui/Button';
+
+// Headline rendered as masked lines that slide up into view
+const headlineLines = [
+    <>We craft <span className="text-gradient-brand">stories</span></>,
+    <>that move brands</>,
+    <>forward.</>,
+];
+
+const capabilities = [
+    'Video Production',
+    'Photography',
+    'Media Buying',
+    'Equipment Rental',
+    'Social Media',
+];
 
 const Landing = () => {
-  // Text to be animated
-  const text = "Welcome to Prism Media.";
+    const heroRef = useRef(null);
+    const reduceMotion = useReducedMotion();
+    const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
 
-  const our_work_array = [
-    "Producing marketing videos, event videos, and social media content.",
-    "Managing paid advertising on platforms like Google Ads and Facebook Ads to drive traffic and sales.",
-    "High-end production gear rental for your creative projects.",
-    "Creating and managing social media accounts for businesses.",
-  ]
+    // Subtle parallax: content drifts up slower than the scroll, background overlay deepens
+    const contentY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '25%']);
+    const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  // Variants for the container and individual letters
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05, // Delay between each letter
-      },
-    },
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  // Variants for the list items
-  const listVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delayChildren: 0.6, // Delay for the first list item
-        staggerChildren: 0.4, // Delay between each list item
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: {
-        duration: 0.8,
-        type: "spring",
-        damping: 10
-      }
-    }
-  };
-
-  return (
-    <div>
-      {/* Hero Section with Video Background */}
-      <header className="relative h-screen overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          poster="/photos/achievements_background1.jpg" // Optional: poster image while video loads
-        >
-          {/* <source src="/videos/compressed_prism_media.mp4" type="video/mp4" /> */}
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
-        
-        {/* Content */}
-        <div className="relative z-20 container mx-auto px-6 h-full">
-          <div className="flex flex-col items-center justify-center h-full text-center text-white">   
-            <motion.h2
-              className="text-5xl font-bold mb-4 mt-4 md:mb-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
+    return (
+        <header ref={heroRef} className="relative h-screen overflow-hidden dark_blue_bg">
+            {/* Video background (poster keeps the original image while it loads) */}
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover z-0"
+                poster="/photos/achievements_background1.jpg"
             >
-              {text.split("").map((char, index) => (
-                <motion.span key={index} variants={letterVariants}>
-                  {char}
-                </motion.span>
-              ))}
-            </motion.h2>
-            
-            <motion.ul
-              className='md:pl-10'
-              variants={listVariants}
-              initial="hidden"
-              animate="visible"
+                {/* <source src="/videos/compressed_prism_media.mp4" type="video/mp4" /> */}
+                Your browser does not support the video tag.
+            </video>
+
+            {/* Navy gradient overlay for readability, on-brand instead of flat black */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0a0a21]/80 via-[#0a0a21]/55 to-[#0a0a21]/90" />
+
+            {/* Decorative brand glow */}
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-pink-600/20 blur-3xl z-10 animate-float-slow" />
+
+            {/* Content */}
+            <motion.div
+                style={{ y: contentY, opacity: contentOpacity }}
+                className="relative z-20 container mx-auto px-6 md:px-10 h-full flex flex-col justify-center"
             >
-              {our_work_array.map((item, index) => (
-                <motion.li 
-                  key={index} 
-                  variants={itemVariants}
-                  className="flex items-center p-4"
-                >
-                  <ChevronRight className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0" />
-                  <span className="text-left">{item}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
-            
-            <motion.button 
-              className="bg-pink-600 hover:bg-pink-700 px-8 py-2 rounded-lg font-semibold flex items-center mt-8 transition-colors duration-300 cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.5, duration: 0.6 }}
+                <div className="max-w-4xl text-left">
+                    {/* Eyebrow */}
+                    <motion.p
+                        className="eyebrow mb-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        <span className="h-px w-8 bg-pink-600 inline-block" />
+                        Welcome to Prism Media — Nairobi, Kenya
+                    </motion.p>
+
+                    {/* Masked line-reveal headline */}
+                    <h1 className="display-hero text-white mb-8">
+                        {headlineLines.map((line, i) => (
+                            <span key={i} className="block overflow-hidden">
+                                <motion.span
+                                    className="block"
+                                    initial={{ y: '110%' }}
+                                    animate={{ y: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.35 + i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+                                >
+                                    {line}
+                                </motion.span>
+                            </span>
+                        ))}
+                    </h1>
+
+                    {/* Subhead */}
+                    <motion.p
+                        className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed mb-8"
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        A full-service digital agency for video production, media buying, premium
+                        gear rental and social media management — from concept to execution.
+                    </motion.p>
+
+                    {/* Capability chips */}
+                    <motion.div
+                        className="flex flex-wrap gap-2.5 mb-10"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 1.05 }}
+                    >
+                        {capabilities.map((item) => (
+                            <span
+                                key={item}
+                                className="rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-1.5 text-xs md:text-sm font-medium text-white/85"
+                            >
+                                {item}
+                            </span>
+                        ))}
+                    </motion.div>
+
+                    {/* CTAs */}
+                    <motion.div
+                        className="flex flex-wrap items-center gap-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 1.2 }}
+                    >
+                        <Button to="/services">Explore Services</Button>
+                        <Button to="/contact" variant="secondary" withArrow={false}>
+                            Get in Touch
+                        </Button>
+                    </motion.div>
+                </div>
+            </motion.div>
+
+            {/* Scroll cue */}
+            <motion.div
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.8, duration: 0.8 }}
             >
-              <Link to="/services" className="flex items-center">
-                <span>Explore Services</span>
-              </Link>
-              <ChevronRight className="ml-2" />
-            </motion.button>
-          </div>
-        </div>
-      </header>
-    </div>
-  );
+                <span className="text-[10px] uppercase tracking-[0.25em] text-white/60">Scroll</span>
+                <span className="h-10 w-px bg-gradient-to-b from-pink-600 to-transparent overflow-hidden">
+                    <span className="block h-full w-full bg-white/70 animate-scroll-cue" />
+                </span>
+            </motion.div>
+        </header>
+    );
 };
 
 export default React.memo(Landing);

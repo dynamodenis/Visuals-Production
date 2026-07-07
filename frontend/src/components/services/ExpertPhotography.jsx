@@ -61,7 +61,7 @@ function ExpertPhotography() {
         <div className="absolute top-1/2 left-0 -translate-y-1/2 z-10">
           <button 
             onClick={() => scrollLeft(videoScrollRef)} 
-            className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
+            className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-pink-700 cursor-pointer"
             aria-label="Scroll left"
           >
             <ChevronLeft size={24} className="text-white" />
@@ -70,7 +70,7 @@ function ExpertPhotography() {
         <div className="absolute top-1/2 right-0 -translate-y-1/2 z-10">
           <button 
             onClick={() => scrollRight(videoScrollRef)} 
-            className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
+            className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-pink-700 cursor-pointer"
             aria-label="Scroll right"
           >
             <ChevronRight size={24} className="text-white" />
@@ -150,7 +150,7 @@ function ExpertPhotography() {
           <div className="absolute top-1/2 left-0 -translate-y-1/2 z-10">
             <button 
               onClick={() => scrollLeft(photoScrollRef)} 
-              className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-800 cursor-pointer"
+              className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-pink-700 cursor-pointer"
               aria-label="Scroll left"
             >
               <ChevronLeft size={24} className="text-white" />
@@ -159,7 +159,7 @@ function ExpertPhotography() {
           <div className="absolute top-1/2 right-0 -translate-y-1/2 z-10 ">
             <button 
               onClick={() => scrollRight(photoScrollRef)} 
-              className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-red-700 cursor-pointer"
+              className="bg-pink-600  p-1 rounded-full shadow-md hover:bg-pink-700 cursor-pointer"
               aria-label="Scroll right"
             >
               <ChevronRight size={24} className="text-white" />

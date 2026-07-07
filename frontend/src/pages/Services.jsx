@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import { Handshake, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import PageHero from '../components/ui/PageHero';
+import Seo from '../components/Seo';
 
-import AnimateSection from '../components/AnimateSection'
 import ExpertPhotography from '../components/services/ExpertPhotography';
 import VideoAudioPodcast from '../components/services/VideoAudioPodcast';
 import MediaBuying from '../components/services/MediaBuying';
@@ -31,46 +32,65 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(services[0]);
 
   return (
-    <div className='container mx-auto px-6 py-16 bg-white'>
-      <AnimateSection>
-        <div className='flex flex-col items-center py-10'>
-          <h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900"><Handshake className="mr-3 text-pink-600 animate-bounce"/><span>Services</span><Handshake className="ml-2 text-pink-600 animate-bounce" /></h2>
-          <div className='italic text-gray-600 text-center md:w-3xl'>
-            <p>We are a full-service digital agency specializing in media buying strategies, creative content development, professional video production, and data-driven digital marketing strategies. 
-            From concept to execution, we help brands tell their stories and connect with their audience.</p>
-          </div>
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-4 pb-4'>
-          {/* Left Sidebar */}
-          <div className='space-y-2'>
-            {/* services Section */}
-            <div className='space-y-2 flex flex-col justify-start items-start'>
-              <h3 className='text-sm font-semibold text-gray-600'>Services Category</h3>
-              <ul className='space-y-2'>
-                {services.map((service, index) => (
-                  <li key={index} 
-                    onClick={() => setSelectedService(service)}
-                    className={`cursor-pointer flex items-center text-sm ${selectedService.name === service.name ? 'text-pink-600 font-semibold' : 'text-gray-600 hover:text-pink-600'
-                      }`
-                    }
-                  >
-                    <a href="#" className='flex items-center text-sm'>
-                      <ChevronRight className='w-4 h-4 mr-2' />
-                      {service.name}
-                    </a>
-                  </li>
-                ))}
+    <div className='bg-white'>
+      <Seo
+        title="Services — Video, Photography, Media Buying & Rentals"
+        description="Explore Prism Media's services: expert videography and photography, video/audio/podcast production, media buying strategies and production equipment rental in Nairobi."
+        path="/services"
+      />
+      <PageHero
+        eyebrow="What we do"
+        title="Services"
+        subtitle="We are a full-service digital agency specializing in media buying strategies, creative content development, professional video production, and data-driven digital marketing. From concept to execution, we help brands tell their stories and connect with their audience."
+      />
+
+      <div className='container mx-auto px-6 md:px-10 py-16 md:py-20'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-10'>
+          {/* Sticky numbered category nav */}
+          <aside className='md:col-span-1'>
+            <div className='md:sticky md:top-28 text-left'>
+              <h3 className='text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-5'>Services Category</h3>
+              <ul className='space-y-1'>
+                {services.map((service, index) => {
+                  const isActive = selectedService.name === service.name;
+                  return (
+                    <li key={index}>
+                      <button
+                        onClick={() => setSelectedService(service)}
+                        className={`w-full flex items-baseline gap-3 text-left rounded-xl px-3 py-3 text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                          isActive
+                            ? 'bg-[#0a0a21] text-white'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-pink-600 hover:translate-x-1'
+                        }`}
+                      >
+                        <span className={`font-mono text-xs ${isActive ? 'text-pink-500' : 'text-gray-400'}`}>
+                          0{index + 1}
+                        </span>
+                        {service.name}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
-          </div>
+          </aside>
 
-          <div
-            className="grid md:grid-cols-1 col-span-3 gap-4"
-          >
-            {selectedService.component}
+          {/* Animated content panel */}
+          <div className="md:col-span-3 text-left">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedService.name}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {selectedService.component}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
-      </AnimateSection>
+      </div>
     </div>
   )
 }

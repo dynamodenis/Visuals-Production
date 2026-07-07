@@ -16,7 +16,7 @@ function VideoAudioPodcast() {
       </div>
       
       {/* Featured Video Section */}
-      <div className="w-full bg-gray-50 mb-6 overflow-hidden rounded-lg shadow-sm">
+      <div className="w-full bg-gray-50 mb-6 overflow-hidden rounded-2xl shadow-sm">
         <iframe
           className="w-full h-64 sm:h-80 md:h-96"
           src="https://www.youtube.com/embed/featured-video-id"
@@ -145,27 +145,27 @@ function VideoAudioPodcast() {
       <div className="w-full mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Our Production Process</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">1. Discovery & Planning</h4>
             <p className="text-gray-600 text-sm">We begin by understanding your goals, target audience, and creative vision.</p>
           </div>
           
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">2. Pre-Production</h4>
             <p className="text-gray-600 text-sm">Our team handles scriptwriting, storyboarding, location scouting, and scheduling.</p>
           </div>
           
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">3. Production</h4>
             <p className="text-gray-600 text-sm">Using state-of-the-art equipment, we capture high-quality footage and audio.</p>
           </div>
           
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">4. Post-Production</h4>
             <p className="text-gray-600 text-sm">Professional editing, color grading, sound design, and graphics integration.</p>
           </div>
           
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-4 rounded-2xl shadow-sm">
             <h4 className="font-medium text-gray-800 mb-2">5. Delivery & Distribution</h4>
             <p className="text-gray-600 text-sm">We provide your content in optimal formats and assist with distribution strategies.</p>
           </div>
@@ -173,14 +173,14 @@ function VideoAudioPodcast() {
       </div>
       
       {/* Equipment Section */}
-      <div className="w-full bg-gray-50 p-4 rounded-lg shadow-sm mb-6">
+      <div className="w-full bg-gray-50 p-4 rounded-2xl shadow-sm mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Professional Equipment</h2>
         <p className="text-gray-600 text-sm mb-4">
           We utilize industry-leading cameras, lighting, audio recording equipment, and post-production 
           software to ensure the highest quality results for every project. Our rental services also 
           allow clients to access professional equipment for their own productions.
         </p>
-        <a href="/equipments" className="text-pink-600  hover:text-red-800 text-sm font-medium flex items-center">
+        <a href="/equipments" className="text-pink-600  hover:text-pink-700 text-sm font-medium flex items-center">
           View Our Equipment
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -189,10 +189,10 @@ function VideoAudioPodcast() {
       </div>
       
       {/* CTA Section */}
-      <div className="w-full bg-red-50 p-6 rounded-lg shadow-sm mb-6">
+      <div className="w-full bg-pink-50 p-6 rounded-2xl shadow-sm mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-3">Ready to Start Your Next Production?</h2>
         <p className="text-gray-600 text-sm mb-4">Contact our team today to discuss your project needs and receive a customized quote.</p>
-        <a href="/contact" className="bg-pink-600  text-white px-4 py-2 rounded-md hover:bg-red-700 inline-block text-sm font-medium">
+        <a href="/contact" className="bg-pink-600  text-white px-4 py-2 rounded-full hover:bg-pink-700 inline-block text-sm font-medium">
           Get In Touch
         </a>
       </div>

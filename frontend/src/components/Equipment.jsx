@@ -1,90 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import { Camera, Video, Mic, Laptop, ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import EquipmentCard from './EquipmentCard';
+import SectionHeading from './ui/SectionHeading';
+import Button from './ui/Button';
 import { useEquipementStore } from '../zustand/store';
 import { motion } from 'framer-motion';
-
-const fadeUpVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
-};
 
 const Equipment = () => {
     const { equipements } = useEquipementStore();
 
     const scrollLeft = () => {
         const container = document.getElementById('equipment-container');
-        container.scrollLeft -= 300;
+        container.scrollBy({ left: -320, behavior: 'smooth' });
     };
 
     const scrollRight = () => {
         const container = document.getElementById('equipment-container');
-        container.scrollLeft += 300;
+        container.scrollBy({ left: 320, behavior: 'smooth' });
     };
 
     return (
-        <section className="py-15 bg-white relative shadow-md">
-            {/* Top Gradient Border */}
-            {/* <div className="absolute top-0 left-0 right-0 h-7 bg-gradient-to-b from-gray-900 to-white" /> */}
+        <section className="py-14 md:py-16 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-6 md:px-10">
+                <SectionHeading
+                    eyebrow="Gear Up"
+                    title="Equipment Rental"
+                    subtitle="High-quality production equipment — cameras, audio gear and lighting kits — to bring your creative projects to life. Whether you're filming, recording or streaming, we equip you for success."
+                />
 
-            <div className="container mx-auto px-6">
-                <motion.h2 className="text-3xl font-bold mb-6 text-center flex flex-row justify-center items-center text-gray-900" variants={fadeUpVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ amount: 0.2 }}><Camera className="mr-3 text-pink-600" /><span>Equipment Rental </span><Mic className="ml-2 text-pink-600" /></motion.h2>
-                <motion.div className='flex flex-col items-center justify-center' variants={fadeUpVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ amount: 0.2 }}>
-                    <div className='md:w-3xl mb-5 italic text-gray-800'>We specialize in renting high-quality production equipment, including cameras, audio gear, and lighting kits, to bring your creative projects to life.
-                        Whether you're filming, recording, or streaming, we provide reliable and professional tools to meet your needs. Let us equip you for success with top-tier production solutions.
-                    </div>
-                </motion.div>
                 <div className="relative">
-                    {/* Scroll Buttons */}
-                    <motion.button
+                    {/* Scroll buttons */}
+                    <button
                         onClick={scrollLeft}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2 }}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors"
+                        aria-label="Scroll left"
+                        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-[#0a0a21] text-white shadow-lg hover:bg-pink-600 transition-colors duration-300 cursor-pointer"
                     >
-                        <ChevronLeft className="w-6 h-6 text-white" />
-                    </motion.button>
-
-                    <motion.button
+                        <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
                         onClick={scrollRight}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2 }}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-600  p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors"
+                        aria-label="Scroll right"
+                        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-[#0a0a21] text-white shadow-lg hover:bg-pink-600 transition-colors duration-300 cursor-pointer"
                     >
-                        <ChevronRight className="w-6 h-6 text-white" />
-                    </motion.button>
+                        <ChevronRight className="w-5 h-5" />
+                    </button>
 
-                    {/* Scrollable Container */}
+                    {/* Scrollable card rail */}
                     <motion.div
                         id="equipment-container"
-                        className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-4"
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2 }}
-                        style={{
-                            scrollbarWidth: 'none',
-                            msOverflowStyle: 'none'
-                        }}
+                        className="flex overflow-x-auto gap-6 scroll-smooth hide-scrollbar py-4 px-1"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-10%' }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                     >
                         {equipements?.map((product, index) => (
                             <EquipmentCard key={index} index={index} product={product} />
                         ))}
                     </motion.div>
                 </div>
+
+                <div className="flex justify-center mt-6">
+                    <Button to="/equipments" variant="dark">
+                        View All Equipment
+                    </Button>
+                </div>
             </div>
-            {/* Bottom Gradient Border */}
-            <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-gray-900 to-white" />
         </section>
     );
 };
